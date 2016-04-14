@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+       xmlns:pou="http://primefaces.org/ui"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:panelGrid style=" font-size: 10px; border-color:   white"  >  
+                <h2>JLRooms is affordable and easy online software for managing any size group traveling together. </h2>
+                <ul>
+                   <li><h3> Manage and create personalize literary</h3></li>
+                   <li><h3> Keep track of roommate assignments.</h3></li>
+                   <li><h3> Help Manage a Block of Hotel Rooms.</h3></li>
+                   <li><h3> Aid in tracking Booking cost and payments.</h3></li>
+                   <li><h3> Assistance in Managing airline Booking</h3></li>
+                   <li><h3> And Many More!</h3> </li>
+
+                            </ul> 
+                <h2>1st step in deciding whether or not JLRooms is a valuable tool in aiding your group traveling together is to try out our full working Demo (only Printing and e-mail has been disabled).</h2>
+              
+            
+      
+  </h:panelGrid>
+     <h:panelGrid columns="3" style=" font-size: 14px; border-color:   white"  >  
+                  E-Mail:
+               <pou:inputText value="#{jlrMgr.userLoginBean.passWordChk}" />
+               <pou:commandButton value="Demo" action="#{jlrMgr.demoMode()}"  style=" font-size: 14px"/>  
+              
+   </h:panelGrid>
+</html>
+

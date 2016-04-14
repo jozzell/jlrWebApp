@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui"> 
+     
+    <pou:panelGrid  style="font-size:14px; width:400px" >  
+         <pou:row  >
+             <pou:column colspan="1" rowspan="2" style="color:  red;text-align:  right ; background-color:   lightblue; font-size:14px" >
+                E-Mail *
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputText value="#{jlrMgr.userLoginBean.userName}" 
+                       style="  width:90%" />
+            </pou:column>
+        </pou:row>
+         <pou:row >
+             
+            <pou:column colspan="2"  style=" font-size: 10px">
+                <pou:commandLink  actionListener="#{jlrMgr.forgotPassword()}">
+                    <h:outputText value="E-Mail me Login my Login Information" />
+                </pou:commandLink>
+                
+               
+            </pou:column>
+        </pou:row>
+        
+         <pou:row   >
+             <pou:column colspan="1"  style="color:  red;text-align:  right ; background-color: lightblue; font-size:14px" >
+                Site ID *
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputText value="#{jlrMgr.siteId}" 
+                       style=" width:90%" />
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" style="color:  red;text-align:  right ; background-color:   lightblue; font-size:14px" >
+               Password *
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:password value="#{jlrMgr.userLoginBean.passWord}" 
+                       style="  width:90%" />
+            </pou:column>
+        </pou:row>
+    </pou:panelGrid>
+     <br/>
+      <pou:toolbar style="width:400px" >
+        <pou:toolbarGroup align="left" style="font-size:14px" >
+           
+            <pou:commandButton value="Create Account" disabled="true"/>  
+            <pou:commandButton value="Login" action="#{jlrMgr.login()}"/>  
+             
+        </pou:toolbarGroup>
+    </pou:toolbar>
+      <pou:dialog   id="basicDialog_1" header="Warning" widgetVar="dialogWidget_1" 
+                  position="60,260" height="100" width="250">  
+        Sorry your missing user name,password or Site ID
+    </pou:dialog>
+      <pou:dialog   id="basicDialog_2" header="Warning" widgetVar="dialogWidget_2" 
+                  position="60,260" height="100" width="250">  
+        Sorry, you do not have an account
+    </pou:dialog>
+      <pou:dialog   id="basicDialog_3" header="Warning" widgetVar="dialogWidget_3" 
+                  position="60,260" height="100" width="250">  
+        Sorry, Invalid Password/EMail
+    </pou:dialog>
+     <pou:dialog   id="basicDialog_4" header="Warning" widgetVar="dialogWidget_4" 
+                  position="60,260" height="100" width="250">  
+        A valid E-Mail is required for Working Demo
+    </pou:dialog>
+      <pou:dialog   id="basicDialog_5" header="Warning" widgetVar="dialogWidget_5" 
+                  position="60,260" height="100" width="250">  
+        A valid E-Mail is required
+    </pou:dialog>
+      <pou:dialog   id="basicDialog_6" header="Warning" widgetVar="dialogWidget_6" 
+                  position="60,260" height="100" width="250">  
+          Check your E-Mail;
+    </pou:dialog>
+</html>
+

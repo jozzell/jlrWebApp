@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <pou:panelGrid style="font-size:14px">  
+
+
+
+        <pou:row  >
+            <pou:column colspan="3" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <h:outputLabel value="Vendor Maintenance"  />  
+
+            </pou:column>
+
+
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" style="color:  red;text-align:  right ; background-color:  lightblue; font-size:14px" >
+                <h:outputLabel value=" Vendor Type *"  />  
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:selectOneMenu id ="list_category" 
+                                   value="#{jlrVendor_Event_New.genEditVendor().vendorType}"   
+                                   style="font-size:14px; width: 250px"
+                                   >  
+                    <f:selectItems value="#{jlrVendor_Event.list}" 
+                                   var="lookupBean" 
+
+                                   itemLabel="#{lookupBean.desc}" 
+                                   itemValue="#{lookupBean.lookupId}"  
+                                   />
+
+                </pou:selectOneMenu> 
+            </pou:column>
+
+        </pou:row>
+
+        <pou:row  >
+            <pou:column colspan="1" style="color:  red;text-align:  right ; background-color:  lightblue; font-size:14px" >
+                <h:outputLabel value="Vendor Name *"  />  
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputText value="#{jlrVendor_Event_New.genEditVendor().vendorName}" 
+                               style=" width:370px" />
+            </pou:column>
+
+        </pou:row>
+
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:14px" >
+                <h:outputLabel value="EMail"  />  
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputText id="email" value="#{jlrVendor_Event_New.genEditVendor().EMail}" style=" width:370px"  />
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:14px" >
+                <h:outputLabel value="Vendor Addrress  "  />  
+
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputText value="#{jlrVendor_Event_New.genEditVendor().addr}" style=" width:370px" />
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:14px" >
+
+                <h:outputLabel value=" "  />  
+
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputText value="#{jlrVendor_Event_New.genEditVendor().addr2nd}" style=" width:370px"/>
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:14px" >
+
+                <h:outputLabel value=" City/State/Zip "  />  
+
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputText value="#{jlrVendor_Event_New.genEditVendor().city}" style=" width:220px"/> 
+                <pou:inputText value="#{jlrVendor_Event_New.genEditVendor().state}"  size="2"/> 
+                <pou:inputText value="#{jlrVendor_Event_New.genEditVendor().zip}" size="10" />
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:14px" >
+                <h:outputLabel value="Phone/Ext "  />  
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputMask  value="#{jlrVendor_Event_New.genEditVendor().phone}" 
+                                mask="(999) 999-9999"
+                                />
+                <pou:inputText value="#{jlrVendor_Event_New.genEditVendor().phoneExt}" />
+            </pou:column>
+
+        </pou:row>
+
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:14px" >
+                <h:outputLabel value="Fax"  />  
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputMask  value="#{jlrVendor_Event_New.genEditVendor().fax}" 
+                                mask="(999) 999-9999"
+                                />
+            </pou:column>
+
+        </pou:row>
+
+
+
+
+    </pou:panelGrid>
+
+
+    <br/>
+    <pou:toolbar style=" width: 520px" >
+        <pou:toolbarGroup align="left" style="font-size:14px" >
+            <pou:commandButton value="Cancel" action="#{ jlrVendor_Event_New.cancelVendorBean()}"/>
+            <pou:commandButton id="imageBtn"  type="button" icon="ui-icon-help" />
+            <pou:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+                <ui:include src="../help/clientBookingWizard/pg5_Vendor_Edit.xhtml" />
+
+            </pou:overlayPanel>
+
+            <pou:commandButton value="Save" action="#{jlrVendor_Event_New.saveVendorBean()}"/>
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidget" 
+                  position="60,260" height="100" width="250" style=" font-size: 14px" >  
+        Can't save without Vendor Name
+    </pou:dialog>
+</html>
+

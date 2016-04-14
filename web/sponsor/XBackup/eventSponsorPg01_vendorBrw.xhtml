@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+
+    <h:head> 
+        <title>Release List</title>
+    </h:head> 
+    <pou:outputPanel style="  font-size:10px; width: 97%">  
+        <pou:progressBar value="50" 
+                         labelTemplate="Event Sponsor Information" 
+                         displayOnly="true" />  
+    </pou:outputPanel>
+    <br/>
+    <h:form style="  font-size:10px">   
+
+        <pou:panelGrid columns="2" style="font-size:10pxf; width: 97%"> 
+            <f:facet name="header">  
+                Sponsor 
+            </f:facet>  
+            <pou:outputLabel value="Vendor Category"  style="font-size:10px"/>
+
+            <pou:selectOneMenu 
+                value="#{jlBookingMgr_V2.vendorObjMgr_V2.returnType}"   
+                style="font-size:10px; width: 200px"
+                onchange="">  
+                <f:selectItems  value="#{jlBookingMgr_V2.vendorObjMgr_V2.sysVendorTypeList}" 
+                                var="lookupBean" 
+                                itemLabel="#{lookupBean.desc}" 
+                                itemValue="#{lookupBean.lookupId}"  
+                                />
+                <pou:ajax event="change"
+                          update="vendor_table"
+                          listener="#{jlBookingMgr_V2.vendorObjMgr_V2.vendorTypeChng()}" />
+            </pou:selectOneMenu> 
+
+
+
+        </pou:panelGrid>
+        <ui:include src="/jlRoomsWebApp/vendorlist/VendorList_V2_include_event.xhtml" />
+        <pou:dialog  modal="false"  position="60,160" resizable="false"
+                     id="basicDialogEditVendor" 
+                     header="Vendor Maintenance" 
+                     widgetVar="dialogWidgetEditVendor" >  
+            <pou:outputPanel  style="margin-bottom:10px; font-size:10px" >  
+                <ui:include src="/jlRoomsWebApp/vendorlist/VendorEdit_V3.xhtml" />
+            </pou:outputPanel>
+        </pou:dialog> 
+
+    </h:form>
+
+
+</html>

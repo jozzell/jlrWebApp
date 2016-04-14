@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <style type="text/css">
+        .ui-layout-north {
+            z-index:20 !important;
+            overflow:visible !important;;
+        }
+
+        .ui-layout-north .ui-layout-unit-content {
+            overflow:visible !important;
+        }
+    </style>
+    <pou:panel  style=" width: 1000px; height: 530px; border-color: #FF69B4" >
+        <pou:layout id="login" style=" border-color:  #FF69B4"  > 
+            <pou:layoutUnit position="east" 
+                            size="550" 
+                            resizable="false" 
+                            closable="false">  
+                <ui:include src="loginPage_01_East.xhtml" />
+
+            </pou:layoutUnit> 
+
+
+            <pou:layoutUnit position="center"  resizable="false" closable="false" collapsible="false" style="border-color:  #FF69B4">  
+                <ui:include src="loginPage_01_slideShow.xhtml" />
+                <br/>
+                <br/>
+                <ui:include src="loginPage_01_user.xhtml" />
+
+
+            </pou:layoutUnit> 
+            <br/>
+            <ui:include src="ads_bottom.xhtml" />
+        </pou:layout>
+
+    </pou:panel>
+    <pou:panel style=" border-color:  #0081c2" >
+
+        <ui:include src="ads_bottom.xhtml" />
+
+    </pou:panel>
+</html>
+

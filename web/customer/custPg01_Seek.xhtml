@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:pou="http://primefaces.org/ui" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    
+    <pou:panelGrid 
+        columns="2" style=" width: 400px">
+       
+
+        <pou:inputText id="input" value="#{jlrMgrClient.seek}" 
+                       style="font-size:14px"/> 
+        <pou:commandButton 
+            id="btnSeek" 
+            value="Search..." 
+            type="submit" 
+            update="clientDX"
+            action="#{jlrMgrClient.searchPg0()}"  
+            style="font-size:14px" />
+    </pou:panelGrid>
+    <br/>
+    <pou:dataTable  
+        id="clientDX"
+        var="custBean" 
+        paginator="true" rows="7" tableStyleClass="ui-table-columntoggle"
+        selection="#{jlrMgrClient.custBean}"
+        selectionMode="single"
+        rowKey="#{custBean.custId}"
+        value="#{jlrMgrClient.custListModel}"  
+        style="font-size:14px; width:100%" >  
+        
+        
+        <f:facet name="header">  
+            Client Search Results
+            <br/>
+
+        </f:facet>  
+        
+        <pou:column style="width:1%">  
+            <pou:rowToggler />  
+        </pou:column>  
+        <pou:column  >  
+            <f:facet name="header">  
+                <h:outputText value="Name"  />  
+            </f:facet>  
+            <h:outputText value="#{custBean.lastName}, #{custBean.firstName}"  />  
+        </pou:column>  
+        <pou:column width="300"  style="font-size:14px">  
+            <f:facet name="header">  
+                <h:outputText value="E-Mail"   />  
+            </f:facet>  
+            <h:outputText value="#{custBean.EMail}"   />  
+        </pou:column> 
+        <pou:column width="120"  style="font-size:14px">  
+            <f:facet name="header">  
+                <h:outputText value="Phone #"   />  
+            </f:facet>  
+            <h:outputText value="#{custBean.hmPhone}"   />  
+        </pou:column> 
+
+        <pou:rowExpansion>  
+            <h:outputText value="#{custBean.EMail}"  />  
+            <br/>
+            <h:outputText value="#{custBean.addr1} #{custBean.addr2}"  />  
+            <br/>
+            <h:outputText value="#{custBean.city} #{custBean.state} #{custBean.zip}"  />  
+            <br/>
+            <h:outputText value="#{custBean.wkPhone} #{custBean.wkPhoneExt}"  />  
+
+        </pou:rowExpansion>
+    </pou:dataTable>
+    <br/>
+    <pou:toolbar  id="tbClient" style=" width: 100%" >
+        <pou:toolbarGroup id="tbClientGrp" align="left" style="font-size:14px; width: 97%"  >
+            <pou:commandButton value="Add Client"   action="#{jlrMgrClient.addPg0()}" />
+            
+            <pou:commandButton value="Edit Client Info."  icon="ui-icon-bullet"  action="#{jlrMgrClient.editPg0()}" />
+            <pou:commandButton value="Next"  icon="ui-icon-bullet"  action="#{jlrMgrClient.nextPg0()}" />
+            
+            
+        </pou:toolbarGroup>
+
+    </pou:toolbar>
+   
+
+    <pou:dialog  position="60,260" resizable="false" height="100" width="400"
+                 id="basicDialogBlockMsg"  style=" font-size: 14px"
+                 header="Client Booking Wizard" 
+                 widgetVar="dialogWidgetbasicDialogBlockMsg" >  
+        You must first select "Client" First
+    </pou:dialog> 
+    
+</html>
+

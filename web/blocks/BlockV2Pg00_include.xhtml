@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pou="http://primefaces.org/ui">
+
+   
+        <pou:dataTable style=" width: 97%"
+                       rowKey="#{blockBean.blockId}"
+                       var="blockBean"   scrollable="true" 
+                   selection="#{jlrBlocks.blockBean}"
+                   selectionMode="single"
+                   value="#{jlrBlocks.blockListModel}"  >  
+          
+        <pou:column style="width:2%"  >  
+            <pou:rowToggler />  
+        </pou:column>  
+
+        <pou:column  headerText="Vendor" style="font-size:14px">  
+            #{blockBean.vendor}  #{blockBean.dspStr1}
+        </pou:column>  
+
+        <pou:column  headerText="Booking" style="font-size:14px">  
+            #{blockBean.lookupDesc}  
+        </pou:column>  
+        <pou:column  headerText="Count" style="font-size:14px; width: 5%; text-align:  right">  
+            #{blockBean.rmCnt}  
+        </pou:column>  
+         <pou:column  headerText="Cost" style="font-size:14px; width: 10%; text-align:  right">  
+            #{blockBean.rmCost}  
+        </pou:column>  
+        <pou:rowExpansion>  
+            <h:panelGrid rendered="#{blockBean.flt}" style=" font-size: 14px" >
+                <h:outputText value="#{blockBean.dspStr1}" />  
+            </h:panelGrid>
+        </pou:rowExpansion>
+    </pou:dataTable>
+   
+</html>
+

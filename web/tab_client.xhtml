@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+       
+     <pou:tabMenu activeIndex="#{jlrMgr.jlrMgrPtr}" style=" font-size: 14px">
+        <pou:menuitem value="Event Detail/Reports"  action="#{jlrMgr.clientHome()}" >  
+            <f:param name="i" value="0"/>
+        </pou:menuitem>
+        <pou:menuitem value="Client Mgmt"  action="#{jlrMgr.rootClient()}" >  
+            <f:param name="i" value="1"/>
+        </pou:menuitem>
+        <pou:menuitem value="Reserve Block's Mgmt" action="#{jlrMgr.rootBlock()}"  >
+            <f:param name="i" value="2"/>
+        </pou:menuitem>
+        <pou:menuitem value="Vendor Block Mgmt" action="#{jlrMgr.rootSponsorHotel()}" >
+            <f:param name="i" value="3"/>
+        </pou:menuitem>
+         <pou:menuitem value="WorkFlow (Visio)" 
+                       rendered="#{jlrMgr.workFlow}"
+                       action="#{jlrMgr.rootWorkFlow()}" icon="ui-icon-help" >
+            <f:param name="i" value="4"/>
+        </pou:menuitem>
+    </pou:tabMenu>
+</html>
+

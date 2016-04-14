@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+
+    <f:view> 
+        <h:head>
+            <title>jlRooms</title>
+            <style type="text/css">
+                .ui-layout-north {
+                    z-index:20 !important;
+                    overflow:visible !important;;
+                }
+
+                .ui-layout-north .ui-layout-unit-content {
+                    overflow:visible !important;
+                }
+                .ui-layout-pane {
+                    border: 0;
+                    width: 0;
+                    border-width: 0;
+
+                }
+            </style>
+        </h:head> 
+
+        <br/>
+        <h:form style="  font-size:10px">   
+            <pou:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                 <img src="/jvp/quicklinks/ajaxloadingbar.gif" style=" background:  none"/>
+                
+            </pou:dialog>
+            <pou:layout fullPage="true"> 
+                <pou:layoutUnit id="top" position="north" size="50"  rendered="#{jlrMgr.geteNumAppNav().renderMenu}">
+                    <ui:include src="#{jlrMgr.geteNumAppNav().menu}"   />
+                </pou:layoutUnit>
+
+
+                <pou:layoutUnit position="center" resizable="false" closable="false" collapsible="true">  
+
+                    <ui:include src="#{jlrMgr.geteNumAppNav().xhtml}"   />
+
+                </pou:layoutUnit> 
+            </pou:layout>
+
+        </h:form>
+    </f:view>
+
+
+
+</html>
+

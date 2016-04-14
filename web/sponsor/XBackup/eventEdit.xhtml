@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+ 
+     <pou:toolbar style=" width: 95%" >
+        <pou:toolbarGroup align="left" style="font-size:10px" >
+            <pou:outputLabel value="Add Event" />
+        </pou:toolbarGroup>
+    </pou:toolbar>   
+     <br/>
+    <pou:panelGrid >  
+        <pou:row  >
+            <pou:column colspan="1" style="color:  red;text-align:  right ; background-color:  lightblue; font-size:10px" >
+                Event Sponsor
+            </pou:column>
+            <pou:column colspan="2"  >
+                #{jlBookingMgr_V2.sponsorBean.vendorName}" 
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" style="color:  red;text-align:  right ; background-color:  lightblue; font-size:10px" >
+                Event Name
+            </pou:column>
+            <pou:column colspan="2"  >
+                <pou:inputText value="#{jlBookingMgr_V2.sponsorBean.sponsorDesc}" 
+                               style=" width:250px" />
+            </pou:column>
+        </pou:row>
+        
+    </pou:panelGrid>
+    <br/>
+     <pou:toolbar style=" width: 95%" >
+        <pou:toolbarGroup align="left" style="font-size:10px; width: 100%" >
+
+           <pou:commandButton 
+                               action="#{jlBookingMgr_V2.addEventCancel()}"
+                               value="Cancel"    />
+            <pou:commandButton 
+                               action="#{jlBookingMgr_V2.addEvent()}"
+                               value="Save"    />
+            
+        </pou:toolbarGroup>
+        
+    </pou:toolbar>
+    <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidgetEvent" 
+                  position="50,150" height="100" width="250">  
+        Missing Event Name
+    </pou:dialog>
+</html>
+

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <ui:include src="clientBookingPg04_Detail_Include.xhtml"/>
+    <br/>
+    <pou:toolbar style=" width: 97%" >
+        <pou:toolbarGroup align="left" style="font-size:14px" >
+            <pou:commandButton value="Back" action="#{jlrMgrClientBooking.quickBookingDetailBack()}" 
+                               rendered="#{jlrMgrClientBooking.custRmBean.backButton()}"/>
+            <pou:commandButton id="imageBtn"  type="button" icon="ui-icon-help" />
+            <pou:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+                <ui:include src="../help/clientBookingWizard/pg9_Booking_flt.xhtml" />
+
+            </pou:overlayPanel>
+            <pou:splitButton value="Save" action="#{jlrMgrClientBooking.quickBookingDetailSave()}" style="font-size:14px">
+                <pou:menuitem value="Cancel" style="font-size:14px" action="#{jlrMgrClientBooking.quickBookingDetailCancel()}" />
+            </pou:splitButton>
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+
+
+
+
+
+
+
+
+</html>
+

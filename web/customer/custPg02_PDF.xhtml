@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+    <pou:toolbar  >
+        <pou:toolbarGroup align="left" style="font-size:14px" >
+                 <pou:commandButton value="Back" style=" font-size: 14px" 
+                                    action="#{jlrMgrPDF.genPaymentPdfRptBack()}" />
+                 
+        </pou:toolbarGroup>
+   </pou:toolbar>
+     <br/>
+    <object type="application/pdf" 
+            data="/jlr/#{jlrMgrPDF.pdf}?pfdrid_c=true" 
+            height="100%" 
+            width="100%">
+            Your browser can't display PDF, 
+            <a href="/jlr/#{jlrMgrPDF.pdf}">click</a> to download pdf instead.
+        </object>
+    
+</html>
+

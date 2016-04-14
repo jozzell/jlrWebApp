@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+    <pou:panelGrid  style="margin-top:20px; font-size: 14px;width: 97%">  
+        <pou:row >
+            <pou:column colspan="2" style="text-align:  center; background-color:  lightblue">
+                Roommates List
+            </pou:column>
+        </pou:row>
+
+        <pou:row >
+
+            <pou:column>
+                <pou:selectOneListbox  
+                    value="#{jlrMgrClientRoomate.pick}"
+                    style="height:190px; width: 250px">  
+                    <f:selectItems value="#{jlrMgrClientRoomate.list}" 
+                                   var="clientRmMateBean" 
+                                   itemLabel="#{clientRmMateBean.customerName}" 
+                                   itemValue="#{clientRmMateBean.clientRmMateId}" />  
+                </pou:selectOneListbox> 
+                <br/>
+                <pou:commandButton type="submit" update="basicDialog2"
+                                   icon="ui-icon-bullet"
+                                   action="#{jlrMgrClientRoomate.removeRm()}"
+                                   value="Remove Client" style="font-size:14px"  />
+            </pou:column>
+
+        </pou:row>
+
+    </pou:panelGrid>
+     <pou:dialog   id="basicDialog2" header="Warning" widgetVar="dialogWidget2" 
+                   position="60,260" height="100" width="250" style=" font-size: 14px" >  
+        Can't remove Client, Nothing was selected...
+    </pou:dialog>  
+</html>
+

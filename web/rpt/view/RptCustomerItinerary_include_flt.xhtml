@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui"> 
+
+    
+    
+        <pou:column>
+            <pou:panelGrid>
+                <pou:row  >
+                    <pou:column  colspan="8" style=" font-style: italic; font-weight: bold;  font-size:  16px; text-align:  center ; background-color:  lightgrey">
+
+                       #{rptItineraryBean.vendorName} #{rptItineraryBean.vendorTypeDesc} Confirmation
+                    </pou:column>
+                </pou:row>
+       
+                <pou:row  >
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px"  >
+                        <pou:outputLabel value="#{rptItineraryBean.vendorObjTypesENum.subRmDesc}"/>
+                    </pou:column>
+                    <pou:column  colspan="1">
+                        <pou:outputLabel value="#{rptItineraryBean.fltNumber}"/>
+                    </pou:column>
+                   
+             
+                    
+                    
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px" >
+                        <pou:outputLabel value="Status"/>
+                    </pou:column>
+                    <pou:column  colspan="1">
+                        <pou:outputLabel value="#{rptItineraryBean.sysDesc}"/>
+                    </pou:column>
+                    
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px" >
+                        <pou:outputLabel value="#{rptItineraryBean.rptDesc}"/>
+                    </pou:column>
+                    <pou:column  colspan="3">
+                        <pou:outputLabel value="#{rptItineraryBean.roomDesc}"/>
+                    </pou:column>
+                    
+                    
+                </pou:row>
+         <pou:row  >
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px"  >
+                        <pou:outputLabel value="Count"/>
+                    </pou:column>
+                     <pou:column  colspan="1">
+                         <pou:outputLabel value="#{rptItineraryBean.custRmCnt}"/>
+                    </pou:column>
+                    
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px"  >
+                        <pou:outputLabel value="Cost $"/>
+                    </pou:column>
+                     <pou:column  colspan="1">
+                         <pou:outputLabel value="#{rptItineraryBean.rmCost}"/>
+                    </pou:column>
+                    
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px"  >
+                        <pou:outputLabel value="Total Cost $"/>
+                    </pou:column>
+                     <pou:column  colspan="3">
+                         <pou:outputLabel value="#{rptItineraryBean.totalCost}"/>
+                    </pou:column>
+                    
+                </pou:row>
+                <pou:row  >
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px" >
+                        <pou:outputLabel value="Departing"/>
+                    </pou:column>
+                    <pou:column  colspan="3">
+                        <pou:outputLabel value="#{rptItineraryBean.fltDepPlace}"/>
+                    </pou:column>
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px" >
+                        <pou:outputLabel value="Departing"/>
+                    </pou:column>
+                    <pou:column  colspan="3">
+                        <pou:outputLabel value="#{rptItineraryBean.fltDepDate}"/>
+                    </pou:column>
+                </pou:row>
+                <pou:row  >
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px" >
+                        <pou:outputLabel value="Arriving"/>
+                    </pou:column>
+                    <pou:column  colspan="3">
+                        <pou:outputLabel value="#{rptItineraryBean.fltArrPlace}"/>
+                    </pou:column>
+                    <pou:column style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold; font-size: 14px" >
+                        <pou:outputLabel value="Arriving"/>
+                    </pou:column>
+                    <pou:column  colspan="3">
+                        <pou:outputLabel value="#{rptItineraryBean.fltArrDate}"/>
+                    </pou:column>
+                </pou:row>
+                 <pou:row  >
+                    <pou:column  style="text-align:  right ; background-color:  lightgrey; width: 30px; font-weight: bold">
+                        <pou:outputLabel value="Comment" />
+                    </pou:column>
+                    <pou:column  colspan="7">
+                        <pou:outputLabel value="#{rptItineraryBean.balanceComment}"/>
+                    </pou:column>
+                </pou:row>
+            </pou:panelGrid>
+        </pou:column>
+</html>
+

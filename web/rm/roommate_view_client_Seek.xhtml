@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+
+    <pou:panelGrid  style=" width: 300px; font-size: 14px">
+        <pou:row >
+            <pou:column colspan="2" style="text-align:  center; background-color:  lightblue">
+                Client Search...
+            </pou:column>
+        </pou:row>
+
+        <pou:row >
+
+            <pou:column>
+                <pou:commandButton 
+                    id="btnSeek" 
+                    value="Search..." 
+                    type="submit" 
+                    action="#{jlrMgrClientRoomate.rmSeek()}"  
+
+                    update="selectListBox"  />
+            </pou:column>
+            <pou:column>
+                <pou:inputText id="input" value="#{jlrMgrClientRoomate.seek}" 
+                               style=" width: 90%"/> 
+            </pou:column>
+        </pou:row>
+        <pou:row >
+            <pou:column colspan="2" style="text-align:  center; background-color:  lightblue">
+                Search Results
+            </pou:column>
+        </pou:row>
+        <pou:row >
+           
+            <pou:column colspan="2" >
+                <pou:selectOneListbox    
+                    id="selectListBox"
+                    value="#{jlrMgrClientRoomate.roommatePick}"
+                    style=" width: 90%; height: 200px">  
+                    <f:selectItems value="#{jlrMgrClientRoomate.customerList}" 
+                                   var="custBean"  
+                                   itemLabel="#{custBean.displayFullName}" 
+                                   itemValue="#{custBean.ID}" />  +
+                </pou:selectOneListbox>  
+                <br/>
+                <pou:splitButton value="Select Roommate" icon="ui-icon-bullet" 
+                                 style="font-size:14px" 
+                                 action="#{jlrMgrClientRoomate.rmPicked()}">
+                    <pou:separator />  
+
+                    <pou:menuitem value="Add New Roommate"   
+                                  style="font-size:14px"    
+                                  action="#{jlrMgrClientRoomate.newRmMate()}"/>
+                </pou:splitButton>
+
+
+
+
+            </pou:column>
+        </pou:row>
+
+    </pou:panelGrid>
+    <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidget"
+                  position="60,260" height="100" width="250" style=" font-size: 14px" >  
+        Can't add Client, Nothing was selected from Search Results...
+    </pou:dialog>  
+</html>
+

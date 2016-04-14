@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+    <pou:panelGrid style="font-size:14px; width: 800px">  
+
+
+        <pou:row  >
+            <pou:column 
+                        style=" width: 10%; text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Status" />
+            </pou:column>
+            <pou:column 
+                        style="  text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Event Vendor" />
+            </pou:column>
+            <pou:column 
+                        style=" width: 20%; text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Start" />
+
+            </pou:column>
+            <pou:column 
+                        style=" width: 20%; text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="End" />
+            </pou:column>
+
+
+        </pou:row>
+        <pou:row  >
+            <pou:column style="text-align:  center" >
+                <pou:outputLabel value="#{jlrMgr.sponsorBean.flagIdString}" />
+            </pou:column>
+            <pou:column  style="text-align:  center" >
+                <pou:outputLabel value="#{jlrMgr.sponsorBean.vendorName}" />
+            </pou:column>
+            <pou:column  style="text-align:  center">
+                <pou:outputLabel value="#{jlrMgr.sponsorBean.effDateStr}" />
+            </pou:column>
+            <pou:column  style="text-align:  center">
+                <pou:outputLabel value="#{jlrMgr.sponsorBean.endDateStr}" />
+            </pou:column>
+
+        </pou:row>
+    </pou:panelGrid>
+        <pou:panelGrid style="font-size:14px; width: 800px">  
+        <pou:row  >
+            <pou:column colspan="8" style="text-align:  center ; background-color:  lightblue; font-size:14px; font-style:  italic" >
+                <pou:outputLabel value="Proceing Fees ($)" />
+
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" 
+                        style=" text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Proceing fee" />
+                <br/>
+                <pou:outputLabel value="(Default)" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Hotel" />
+
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Car Rentel" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="AirLine" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Package" />
+            </pou:column>
+
+
+
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Cruise" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Merchandise" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Train" />
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column style=" text-align:  right">
+                <pou:outputLabel value="$#{jlrMgr.sponsorBean.procFee}" />
+            </pou:column>
+            <pou:column style=" text-align:  right">
+                <pou:outputLabel value="$#{jlrMgr.sponsorBean.procFeeHotel}" />
+            </pou:column>
+            <pou:column style=" text-align:  right">
+                <pou:outputLabel value="$#{jlrMgr.sponsorBean.procFeeCar}" />
+            </pou:column>
+            <pou:column style=" text-align:  right">
+                <pou:outputLabel value="$#{jlrMgr.sponsorBean.procFeeAir}" />
+            </pou:column  >
+            <pou:column style=" text-align:  right">
+                <pou:outputLabel value="$#{jlrMgr.sponsorBean.procFeeTicket}" />
+            </pou:column>
+
+
+            <pou:column style=" text-align:  right">
+                <pou:outputLabel value="$#{jlrMgr.sponsorBean.procFeeCruise}" />
+            </pou:column>
+            <pou:column style=" text-align:  right">
+                <pou:outputLabel value="$#{jlrMgr.sponsorBean.processFeeType}" />
+            </pou:column>
+             <pou:column style=" text-align:  right">
+                 <pou:outputLabel value="$#{jlrMgr.sponsorBean.procFeeTrain}" />
+            </pou:column>
+        </pou:row>
+    </pou:panelGrid>
+</html>
+

@@ -1,0 +1,11 @@
+INSERT INTO `jlroomsc_prod_001`.`lookup_sys` (`sys_id`, `sys_desc`, `sys_type`, `rpt_desc`) VALUES ('-31', 'Cruise', '0', 'Cabin Size');
+
+INSERT INTO `jlroomsc_prod_001`.`lookup_sys` (`sys_id`, `sys_desc`, `sys_type`, `rpt_desc`) VALUES ('-32', 'RailRoad', '0', 'Seat Class');
+
+ALTER TABLE `jlroomsc_prod_001`.`lookup` 
+ADD COLUMN `vendor_id` INT(11) NULL AFTER `db_timestamp`;
+
+ALTER TABLE `jlroomsc_prod_001`.`customer_room` 
+ADD COLUMN `ticket_info` VARCHAR(60) NULL AFTER `cust_room_cnt`;
+
+INSERT INTO `jlroomsc_prod_001`.`lookup_sys` (`sys_id`, `sys_desc`, `sys_type`, `rpt_desc`) VALUES ('-34', 'Merchandise', '0', 'Item');

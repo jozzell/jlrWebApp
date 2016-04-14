@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pou="http://primefaces.org/ui">
+    
+    
+       <pou:panelGrid columns="2" style="font-size:10px; width: 100%">  
+        <h:outputLabel value="Comapany Name *"  />  
+        
+        <pou:inputText value="#{jlrCompanyInfo.companyBean.vendorName}" 
+                       style=" width:200px" />
+
+        <h:outputLabel value="Comapany Addrress  "  />  
+        <pou:inputText value="#{jlrCompanyInfo.companyBean.addr}" style=" width:200px" />
+
+        <h:outputLabel value="Suite/Apt# "  />  
+        <pou:inputText value="#{jlrCompanyInfo.companyBean.addr2nd}" style=" width:200px"/>
+
+
+        <h:outputLabel value="City "  />  
+        <pou:inputText value="#{jlrCompanyInfo.companyBean.city}" style=" width:200px"/>
+
+
+        <h:outputLabel value="State "  />  
+        <pou:inputText value="#{jlrCompanyInfo.companyBean.state}" />
+
+
+        <h:outputLabel value="Zip "  />  
+        <pou:inputText value="#{jlrCompanyInfo.companyBean.zip}" />
+
+        <h:outputLabel value="Zip+"  />  
+        <pou:inputText value="#{jlrCompanyInfo.companyBean.zipPlus}" />
+
+        <h:outputLabel value="Phone "  />  
+
+        <pou:inputMask  value="#{jlrCompanyInfo.companyBean.phone}" 
+                        mask="(999) 999-9999"
+                        />
+
+        <h:outputLabel value="Ext."  />  
+        <pou:inputText value="#{jlrCompanyInfo.companyBean.phoneExt}" />
+
+        <h:outputLabel value="Fax"  />  
+
+        <pou:inputMask  value="#{jlrCompanyInfo.companyBean.fax}" 
+                        mask="(999) 999-9999"
+                        />
+
+
+    </pou:panelGrid>
+      <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidget" 
+                  position="60,260" height="100" width="250" style=" font-size: 14px" >  
+        Can't save without Company Name
+    </pou:dialog>
+</html>
+

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+ 
+    <pou:dataTable id="vendor_table"  style="width: 97%; font-size: 14px"
+                   var="vendorBean"  
+                   rowKey="#{vendorBean.vendorId}"
+                   selectionMode="single"
+                   selection="#{jlrVendor.vendorBean}"
+                   value="#{jlrVendor.vendorListModel}"  >  
+         <f:facet name="header"  >  
+            #{jlrMgr.jlrMgrBean.vendorDesc} Vendors
+        </f:facet>  
+        <pou:column style="width:2%">  
+            <pou:rowToggler />  
+        </pou:column>  
+
+        <pou:column  headerText="Vendor" style="font-size:14px">  
+            #{vendorBean.vendorName}  
+        </pou:column>  
+        <pou:column  headerText="City/State" style="font-size:14px">  
+            #{vendorBean.city}  #{vendorBean.state} 
+        </pou:column>  
+        <pou:rowExpansion>  
+            <h:panelGrid  columns="2" cellpadding="4" style="width:300px;"  
+                          >  
+                <h:outputText value="Address" style=" width: 30px" />  
+                <h:outputText id="model" value=" #{vendorBean.addr}  #{vendorBean.addr2nd}  " />  
+
+                <h:outputText value="City" />  
+                <h:outputText id="year" value="#{vendorBean.city} " />  
+
+                <h:outputText value="State/Zip" />  
+                <h:outputText id="state" value="#{vendorBean.state} #{vendorBean.zip} #{vendorBean.zipPlus}" />  
+
+                <h:outputText value="Phone" />  
+                <h:outputText value="#{vendorBean.phone} #{vendorBean.phoneExt}"/>  
+
+                <h:outputText value="E-Mail" />  
+                <h:outputText value="#{vendorBean.EMail}"/> 
+
+            </h:panelGrid>
+        </pou:rowExpansion>
+
+
+    </pou:dataTable>
+    <br/>
+
+    <pou:toolbar >
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 100%" >
+            <pou:commandButton value="Back"  action="#{jlrVendor.pg1_back()}" />
+            <pou:commandButton id="imageBtn"  type="button" icon="ui-icon-help" />
+            <pou:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+                <ui:include src="../help/clientBookingWizard/pg5_Vendor.xhtml" />
+
+            </pou:overlayPanel>
+
+            <pou:commandButton value="Cancel"   action="#{jlrVendor.pg0_typeCanel()}" />
+            <pou:commandButton value="Add New Vendor"  action="#{jlrVendor.pg1_add()}" />
+            <pou:commandButton value="Edit Vendor" icon="ui-icon-bullet"  action="#{jlrVendor.pg1_edit()}" />
+            <pou:commandButton value="Next"  icon="ui-icon-bullet"  action="#{jlrVendor.pg1_next()}" />
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidget" 
+                  position="60,260" height="100" width="250" style=" font-size: 14px" >  
+        No Vendor Selected Editing (Click Gray Circle and Row will turn Yellow when selected)
+    </pou:dialog>
+   
+
+</html>
+

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <p:columnGroup type="header">
+            <p:row>
+                <p:column  headerText="Name"  />
+                <p:column  headerText="Address" />
+                <p:column  headerText="Email" />
+               <p:column  headerText="Home #" />
+               <p:column  headerText="Work #" />
+            </p:row>
+        </p:columnGroup>   
+        <p:subTable var="rptBeanColumes" value="#{rptBeanColumesAmtList.rptList}">
+           <f:facet name="header" >
+                <h:outputText value="#{rptBeanColumesAmtList.header}"  />
+            </f:facet>
+             
+            <p:column width="180" headerText="Name"  >  
+
+                <h:outputText value="#{rptBeanColumes.col06}"/>
+                
+            </p:column>  
+           <p:column  headerText="Address"  >  
+
+                <h:outputText value="#{rptBeanColumes.col07}"/>
+
+            </p:column>  
+            <p:column width="90" headerText="EMail"  >  
+
+                <h:outputText value="#{rptBeanColumes.col08}"/>
+
+            </p:column>  
+            <p:column width="50" headerText="Phone"  >  
+
+                <h:outputText value="#{rptBeanColumes.col09}"/>
+
+            </p:column>  
+          <p:column width="50" headerText="Phone"  >  
+
+                <h:outputText value="#{rptBeanColumes.col10}"/>
+
+            </p:column>  
+        </p:subTable>
+</html>
+

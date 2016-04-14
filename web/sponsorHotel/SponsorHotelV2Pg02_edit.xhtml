@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+
+
+ 
+
+    <pou:panelGrid  style=" width: 97%" >
+        <pou:row  >
+            <pou:column colspan="4" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Edit #{jlrSponsorHotel.sponsorHotelBean.vendorTypeDesc} Event information for
+                #{jlrSponsorHotel.sponsorHotelBean.vendorName}
+            </pou:column>
+        </pou:row>
+       
+
+        
+        <pou:row >
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">Status</pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Effective Date
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Ending date
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Balance due
+            </pou:column>
+
+        </pou:row>
+        <pou:row>
+            <pou:column>
+                <pou:selectOneMenu 
+                    value="#{jlrSponsorHotel.sponsorHotelBean.flag_Ind}"   
+                    style="font-size:14px" >  
+                    <f:selectItems value="#{jlrSponsorHotel.flagStatusList}" 
+                                   var="lookupBean" 
+
+                                   itemLabel="#{lookupBean.desc}" 
+                                   itemValue="#{lookupBean.lookupId}"  
+                                   />
+
+                </pou:selectOneMenu> 
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrSponsorHotel.sponsorHotelBean.eff_date}"  
+                              showButtonPanel="true"  size="15" navigator="true" style="font-size:14px"
+                              pattern="MM/dd/yyyy" />  
+            </pou:column>
+            <pou:column>
+                <pou:calendar value="#{jlrSponsorHotel.sponsorHotelBean.end_date}"  
+                              showButtonPanel="true"   size="15" navigator="true" style="font-size:14px"
+                              pattern="MM/dd/yyyy" />
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrSponsorHotel.sponsorHotelBean.balance_due_by}"  
+                              showButtonPanel="true"   size="15" navigator="true" style="font-size:14px"
+                              pattern="MM/dd/yyyy" />  
+            </pou:column>
+        </pou:row>
+        <pou:row >
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">Proc. Fee$</pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Cut off Date
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Cancel Date
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Check Due by
+            </pou:column>
+
+        </pou:row>
+        <pou:row>
+             <pou:column >
+                 <pou:inputText value="#{jlrSponsorHotel.sponsorHotelBean.process_fee}" 
+                               size="10" style="font-size:14px"
+                               >
+                    <f:convertNumber 
+                        groupingUsed="true"
+                       
+                        maxFractionDigits="2"
+                        minFractionDigits="3"
+                        maxIntegerDigits="10"
+                        />
+                </pou:inputText>
+                
+                
+               
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrSponsorHotel.sponsorHotelBean.cutoff_date}"   
+                              showButtonPanel="true"   size="15" navigator="true" style="font-size:14px"
+                              pattern="MM/dd/yyyy"/>  
+
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrSponsorHotel.sponsorHotelBean.cancel_date}"  
+                              showButtonPanel="true"   size="15" navigator="true" style="font-size:14px"
+                              pattern="MM/dd/yyyy" />  
+
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrSponsorHotel.sponsorHotelBean.check_due_by}"  
+                              showButtonPanel="true"   size="15" navigator="true" style="font-size:14px"
+                              pattern="MM/dd/yyyy" />  
+            </pou:column>
+        </pou:row>
+        
+        <pou:row  >
+            <pou:column colspan="4" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Management Note
+            </pou:column>
+
+        </pou:row>
+        <pou:row >
+
+            <pou:column  colspan="4">
+                <pou:inputTextarea rows="3" cols="50"  maxlength="200"    
+                                   value="#{jlrSponsorHotel.sponsorHotelBean.location}"    
+                                   autoResize="false" style="font-size:14px; width: 90%"/>  
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="4" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Itinerary Note
+            </pou:column>
+
+        </pou:row>
+        <pou:row >
+
+            <pou:column  colspan="4">
+                <pou:inputTextarea rows="1" cols="50"  maxlength="200"    
+                                   value="#{jlrSponsorHotel.sponsorHotelBean.report_comment}"    
+                                   autoResize="false" style="font-size:14px; width: 90%"/>  
+            </pou:column>
+        </pou:row>
+        
+        
+    </pou:panelGrid>
+
+
+    <br/>
+    <pou:toolbar >
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 97%" >
+            <pou:commandButton value="Cancel"  action="#{jlrSponsorHotel.sponsorHotelEditCancel()}" />
+            <pou:commandButton value="Save"  action="#{jlrSponsorHotel.sponsorHotelEditSave()}" />
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+</html>
+

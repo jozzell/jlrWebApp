@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:pou="http://primefaces.org/ui">
+    
+     <pou:panelGrid  style="margin-top:20px; font-size: 10px;width: 97%">  
+      
+       
+        <pou:row >
+            <pou:column>
+                Vendor
+            </pou:column>
+            <pou:column>
+                 <h:outputText value=" #{jlrMgr.vendorBean.vendorName} " />
+            </pou:column>
+        </pou:row>
+         <pou:row >
+            <pou:column>
+                Client
+            </pou:column>
+            <pou:column>
+                  <h:outputText value="#{jlrMgr.clientBean.displayFullName}"  />  
+            </pou:column>
+        </pou:row>
+     </pou:panelGrid>
+</br>
+ <pou:toolbar  style=" width: 97%">
+        <pou:toolbarGroup align="left" style="font-size:10px; width: 97%" >
+            <pou:commandButton type="Next" 
+                               action="#{jlrMgrClientRoomate.rmNameSave()}"
+                               value="Cancel" style="font-size:10px" 
+                               
+                               />
+            
+           
+       
+        </pou:toolbarGroup>
+    </pou:toolbar>
+</html>
+

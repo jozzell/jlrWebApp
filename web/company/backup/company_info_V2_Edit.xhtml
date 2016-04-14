@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+   <pou:panelGrid style="font-size:10px">  
+        <pou:row  > 
+            <pou:column colspan="1" style="color:  red;text-align:  right ; background-color:  lightblue; font-size:10px" >
+                Comapany Name *
+            </pou:column>
+            <pou:column colspan="2"  >
+               <pou:inputText value="#{jlBookingMgr_V2.companyBean.vendorName}" 
+                       style=" width:250px" />
+            </pou:column>
+        </pou:row>
+       
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:10px" >
+                Addrress
+            </pou:column>
+            <pou:column colspan="2"  >
+                       <pou:inputText value="#{jlBookingMgr_V2.companyBean.addr}" 
+                       style=" width:250px" />
+            </pou:column>
+
+        </pou:row>
+         <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; 
+                        font-size:10px" >
+              Suite
+            </pou:column>
+             <pou:column colspan="2"  >
+            <pou:inputText value="#{jlBookingMgr_V2.companyBean.addr2nd}" style=" width:250px" />
+            </pou:column>
+        </pou:row>
+        
+        
+       
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:10px" >
+               City/State/Zip
+            </pou:column>
+            <pou:column colspan="2" style=" padding-right: 2px" >
+             <pou:inputText value="#{jlBookingMgr_V2.companyBean.city}" 
+                            style=" width:150px"/>
+             <pou:inputText value="#{jlBookingMgr_V2.companyBean.state}"
+                               size="2"/>               
+                <pou:inputText value="#{jlBookingMgr_V2.companyBean.zip}"
+                               size="5"/>
+            </pou:column>
+            
+        </pou:row>
+       
+       
+        
+         <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:10px" >
+              Work#/Ext
+            </pou:column>
+            
+            <pou:column colspan="2" >
+            <pou:inputMask value="#{jlBookingMgr_V2.companyBean.phone}" 
+                       mask="(999) 999-9999" size="20"
+                       />-
+                  <pou:inputText value="#{jlBookingMgr_V2.companyBean.phoneExt}"
+                       size="10"
+                       />
+            </pou:column>
+        </pou:row>
+         <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:10px" >
+             Fax
+            </pou:column>
+            
+            <pou:column colspan="2" >
+                <pou:inputMask value="#{jlBookingMgr_V2.companyBean.fax}" 
+                       mask="(999) 999-9999" size="20"
+                       />
+            </pou:column>
+        </pou:row>
+        
+    </pou:panelGrid>
+    <br/>
+    <pou:toolbar >
+        <pou:toolbarGroup align="left" style="font-size:10px; width: 390px" >
+            <pou:commandButton value="Cancel" 
+                               update="basicDialogMsgNewPg1ID"
+                               action="#{jlBookingMgr_V2.editComapanyInfoCanel()}"/>
+            <pou:commandButton value="Save" 
+                               update="basicDialogMsgNewPg1ID"
+                               action="#{jlBookingMgr_V2.editComapanyInfoSave()}"/>
+        </pou:toolbarGroup>
+        <pou:dialog   id="basicDialogMsgNewPg1ID" 
+                           header="Warning" 
+                           widgetVar="basicDialogMsgNewPg1"
+                  position="50,150" height="100" width="250">  
+                    #{jlBookingMgr_V2.jlBookingMgr_V2_URL.dialogMsg}
+    </pou:dialog>
+    </pou:toolbar>
+    
+</html>
+

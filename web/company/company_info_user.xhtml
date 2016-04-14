@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+    <pou:toolbar > 
+        <pou:toolbarGroup align="left" style="font-size:10px; width: 100%" >
+            <pou:outputLabel value="User Information (Admin)" />
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    <br/>
+    <pou:panelGrid columns="2" style="font-size:10px; width: 100%">  
+        
+        <h:outputLabel value="User Name *"  />  
+        <pou:inputText value="#{jlBookingMgr_V2.loginBean.userName}" 
+                       style=" width:200px" />
+        
+        <h:outputLabel value="E-Mail* (user)"  />  
+        <pou:inputText value="#{jlBookingMgr_V2.loginBean.email}" 
+                       style=" width:200px" />
+        
+        <h:outputLabel value="Password *"  />  
+        <pou:password value="#{jlBookingMgr_V2.loginBean.passWord}"  style=" width:200px" />
+       
+        <h:outputLabel value="Password Veriified *"  />  
+        <pou:password value="#{jlBookingMgr_V2.loginBean.passWordCheck}" style=" width:200px" />
+
+        <h:outputLabel value="First Name"  />  
+        <pou:inputText value="#{jlBookingMgr_V2.loginBean.firstName}" 
+                       style=" width:200px" />
+        
+        <h:outputLabel value="Last Name"  />  
+        <pou:inputText value="#{jlBookingMgr_V2.loginBean.lastName}" 
+                       style=" width:200px" />
+
+    </pou:panelGrid>
+    <br/>
+    <pou:toolbar >
+        <pou:toolbarGroup align="left" style="font-size:10px; width: 100%" >
+            <pou:commandButton value="Back" action="#{jlBookingMgr_V2.jlBookingMgr_V2_URL.newCompanyPg2Back()}"/>
+            
+            <pou:commandButton value="Create Account" action="#{jlBookingMgr_V2.jlBookingMgr_V2_URL.newCompanyPg2()}"/>
+            
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+</html>
+

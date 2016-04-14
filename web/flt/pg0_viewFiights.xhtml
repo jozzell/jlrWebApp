@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+    <pou:dataTable   style="width: 100%; font-size: 14px"
+                     var="flightInfoBean"   
+                     rowKey="#{flightInfoBean.fltId}"
+                     selectionMode="single"
+                     selection="#{jlrFlightMgr.flightInfoBean}"
+                     value="#{jlrFlightMgr.flightInfoListModel}"  >  
+        <f:facet name="header"  >  
+            Available #{jlrFlightMgr.vendorObjTypesENum.header}
+        </f:facet>  
+        <pou:column selectionMode="single" style="width:4%" />  
+
+
+        <pou:column  headerText="Vendor" style="font-size:14px">  
+            #{flightInfoBean.vendorName}  
+        </pou:column>  
+        <pou:column  headerText="#{jlrFlightMgr.vendorObjTypesENum.subRmDesc}" style="font-size:14px;  width: 10%">  
+            #{flightInfoBean.fltNumber}  
+        </pou:column> 
+        <pou:column  headerText="Departing" style="font-size:14px;  width: 25%">  
+            #{flightInfoBean.fltDeparturePlace}   #{flightInfoBean.fltDepartureDateString}  
+        </pou:column> 
+        <pou:column  headerText="Arrving" style="font-size:14px;  width: 25%">  
+            #{flightInfoBean.fltArrivalPlace}   #{flightInfoBean.fltArrivalDateString} 
+        </pou:column> 
+    </pou:dataTable>
+    <br/>
+    <pou:toolbar >
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 100%" >
+
+            <pou:commandButton value="Back"  action="#{jlrFlightMgr.back()}" />
+            <pou:commandButton id="imageBtn"  type="button" icon="ui-icon-help" />
+            <pou:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+                <ui:include src="../help/clientBookingWizard/pg6_flight.xhtml" />
+
+            </pou:overlayPanel>
+            <pou:commandButton value="Cancel"  action="#{jlrFlightMgr.cancel}" />
+            <pou:commandButton value="Edit #{jlrFlightMgr.vendorObjTypesENum.header}"  action="#{jlrFlightMgr.edit()}" />
+            <pou:commandButton value="Add #{jlrFlightMgr.vendorObjTypesENum.header} "  action="#{jlrFlightMgr.add()}" />
+            <pou:commandButton value="Next"  action="#{jlrFlightMgr.next()}" />
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+
+    <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidget" 
+                  position="60,260" height="100" width="250" style=" font-size: 14px">  
+        Nothing was selected (Click Gray Circle and Row will turn Yellow when selected)
+    </pou:dialog>
+
+
+</html>

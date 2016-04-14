@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+    <pou:toolbar > 
+        <pou:toolbarGroup align="left" style="font-size:10px" >
+            <pou:outputLabel value="Company Information" />
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    <br/>
+    <pou:panelGrid columns="2" style="font-size:10px; width: 100%">  
+        <h:outputLabel value="Comapany Name *"  />  
+        
+        <pou:inputText value="#{jlBookingMgr_V2.companyBean.vendorName}" 
+                       style=" width:200px" />
+
+        <h:outputLabel value="Comapany Addrress  "  />  
+        <pou:inputText value="#{jlBookingMgr_V2.companyBean.addr}" style=" width:200px" />
+
+        <h:outputLabel value=" "  />  
+        <pou:inputText value="#{jlBookingMgr_V2.companyBean.addr2nd}" style=" width:200px"/>
+
+
+        <h:outputLabel value="City "  />  
+        <pou:inputText value="#{jlBookingMgr_V2.companyBean.city}" style=" width:200px"/>
+
+
+        <h:outputLabel value="State "  />  
+        <pou:inputText value="#{jlBookingMgr_V2.companyBean.state}" />
+
+
+        <h:outputLabel value="Zip "  />  
+        <pou:inputText value="#{jlBookingMgr_V2.companyBean.zip}" />
+
+        <h:outputLabel value="Zip+"  />  
+        <pou:inputText value="#{jlBookingMgr_V2.companyBean.zipPlus}" />
+
+        <h:outputLabel value="Phone "  />  
+
+        <pou:inputMask  value="#{jlBookingMgr_V2.companyBean.phone}" 
+                        mask="(999) 999-9999"
+                        />
+
+        <h:outputLabel value="Ext."  />  
+        <pou:inputText value="#{jlBookingMgr_V2.companyBean.phoneExt}" />
+
+        <h:outputLabel value="Fax"  />  
+
+        <pou:inputMask  value="#{jlBookingMgr_V2.companyBean.fax}" 
+                        mask="(999) 999-9999"
+                        />
+
+
+    </pou:panelGrid>
+    <br/>
+    <pou:toolbar >
+        <pou:toolbarGroup align="left" style="font-size:10px; width: 390px" >
+            <pou:commandButton value="Next" action="#{jlBookingMgr_V2.jlBookingMgr_V2_URL.newCompanyPg1()}"/>
+            
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+</html>
+

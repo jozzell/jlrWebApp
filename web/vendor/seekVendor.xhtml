@@ -1,0 +1,25 @@
+
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+ 
+    
+     <pou:panelGrid 
+        columns="2" style=" width: 200px">
+       
+
+         <pou:inputText id="input" value="#{jlrVendor_Event.seek}" 
+                       style="font-size:14px"/> 
+        <pou:commandButton 
+            id="btnSeek" 
+            value="Search..." 
+            type="submit" 
+            action="#{jlrVendor_Event.seekSet()}"  
+            style="font-size:14px" />
+    </pou:panelGrid>
+    <br/>
+    
+</html>
+

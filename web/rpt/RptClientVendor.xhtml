@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+       <pou:toolbar  >
+        <pou:toolbarGroup align="left" style="font-size:14px" >
+                 <pou:commandButton value="PDF" style=" font-size: 14px" 
+                                    disabled="#{jlrMgr.demo}"
+                                    action="#{jlrMgrPDF.rptClientBookingVendor()}" />
+                 <pou:commandButton value="Done" style=" font-size: 14px" 
+                                  action="#{jlrMgr.rootSponsorHotel()}" />
+        </pou:toolbarGroup>
+   </pou:toolbar>
+     <br/>
+     <pou:dataTable var="rptBeanColumes" value="#{jlrRptMgr_Event.vendorBooking}"
+                   style=" font-size: 14px;margin-bottom:0" scrollRows="20" scrollable="true" liveScroll="true"    >
+        <f:facet name="header">
+            Report
+        </f:facet>
+        <pou:column style="width:16px">
+            <pou:rowToggler />
+        </pou:column>
+        <pou:column headerText="Status" width="70">
+            <h:outputText value="#{rptBeanColumes.col03} "/>
+        </pou:column>  
+        <pou:column headerText="Client">
+            <h:outputText value="#{rptBeanColumes.col01} "/>
+
+
+        </pou:column>  
+        <pou:column headerText="Vendor" >
+            <h:outputText value="#{rptBeanColumes.col04} "/>
+        </pou:column>  
+        <pou:column headerText="Booking" >
+            
+            <h:outputText value="#{rptBeanColumes.col02} "/>
+        </pou:column>  
+
+       
+
+       
+
+        <pou:column headerText="Split" width="30" >
+            <h:outputText value="#{rptBeanColumes.col18} "/>
+
+        </pou:column>  
+
+
+        <pou:column headerText="Days" width="30" >
+            <h:outputText value="#{rptBeanColumes.col10} "/>
+
+        </pou:column>  
+        <pou:column headerText="Cnt" width="30" >
+            <h:outputText value="#{rptBeanColumes.col11} "/>
+
+        </pou:column>  
+        <pou:column headerText="Total Cost" width="80" style=" text-align:  right">
+            <h:outputText value="#{rptBeanColumes.col09} "/>
+        </pou:column>  
+        <pou:rowExpansion>
+            <br/>
+            <pou:panelGrid >
+                
+                <pou:row >
+                    <pou:column colspan="3"  style=" text-align:   center; background-color: lightgray; font-weight:  bolder">
+                        <h:outputText value="#{rptBeanColumes.col05} "/>
+
+                    </pou:column>  
+                </pou:row>
+                <pou:row >
+                    <pou:column  style=" text-align:   center; background-color:  activecaption ; font-weight:  bold">
+                        <h:outputText value="Address "/>
+
+                    </pou:column>  
+                    <pou:column  style=" text-align:   center; background-color:  activecaption; font-weight:  bold">
+                        <h:outputText value="E-Mail"/>
+                    </pou:column>  
+
+
+                    <pou:column  style=" text-align:   center; background-color:  activecaption; font-weight:  bold">
+                        <h:outputText value="Phone #'s "/>
+
+                    </pou:column>  
+
+
+                </pou:row>
+                <pou:row >
+                    <pou:column   >
+                        <h:outputText value="#{rptBeanColumes.col14} "/>
+
+                    </pou:column>  
+                    <pou:column>
+                        <h:outputText value="#{rptBeanColumes.col16} "/>
+                    </pou:column>  
+
+
+                    <pou:column>
+                        <h:outputText value="Hm: #{rptBeanColumes.col15} Wk: #{rptBeanColumes.col17} "/>
+
+                    </pou:column>  
+
+
+                </pou:row>
+                
+                
+                
+                
+                
+                
+                
+                
+                 <pou:row >
+                    <pou:column  style=" text-align:   center; background-color:  activecaption ; font-weight:  bold">
+                        <h:outputText value="Cost Per "/>
+
+                    </pou:column>  
+                    <pou:column  style=" text-align:   center; background-color:  activecaption; font-weight:  bold">
+                        <h:outputText value="Start Date"/>
+                    </pou:column>  
+
+
+                    <pou:column  style=" text-align:   center; background-color:  activecaption; font-weight:  bold">
+                        <h:outputText value="End Date "/>
+
+                    </pou:column>  
+
+
+                </pou:row>
+                <pou:row >
+                     <pou:column headerText="Cost" width="80" style=" text-align:  right">
+            <h:outputText value="#{rptBeanColumes.col08} " />
+
+        </pou:column>  
+                   <pou:column headerText="Date" width="180" >
+            <h:outputText value="#{rptBeanColumes.col06} " style=""/>
+
+        </pou:column>  
+
+
+                    <pou:column headerText="Date" width="180" >
+            <h:outputText value="#{rptBeanColumes.col07} " style=""/>
+
+        </pou:column>  
+
+
+                </pou:row>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                  <pou:row >
+                    <pou:column  style=" text-align:   center; background-color:  activecaption; font-weight:  bold">
+                        <h:outputText value="Flight"/>
+
+                    </pou:column>  
+                    <pou:column  style=" text-align:   center; background-color:  activecaption; font-weight:  bold">
+                        <h:outputText value="Departing"/>
+                    </pou:column>  
+
+
+                    <pou:column  style=" text-align:   center; background-color:  activecaption; font-weight:  bold">
+                        <h:outputText value="Arriving"/>
+
+                    </pou:column>  
+
+
+                </pou:row>
+                <pou:row >
+                    <pou:column   >
+                        <h:outputText value="#{rptBeanColumes.col12} #{rptBeanColumes.col13} "/>
+
+                    </pou:column>  
+                    <pou:column>
+                        <h:outputText value="#{rptBeanColumes.col19} "/>
+                    </pou:column>  
+
+
+                    <pou:column>
+                        <h:outputText value="#{rptBeanColumes.col20}"/>
+
+                    </pou:column>  
+
+
+                </pou:row>
+            </pou:panelGrid>
+            <br/>
+        </pou:rowExpansion>
+          <f:facet name="footer" >
+            
+                
+               
+             <h:outputText value="Total " style=" text-align:  right"/>
+               
+           
+            </f:facet>
+    </pou:dataTable>
+</html>
+

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <pou:outputPanel  style="font-size:14px; width: 97%" >
+
+        <pou:panelGrid style="font-size:14px; width: 97%">  
+            <pou:row  >
+                <pou:column colspan="2" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                    Edit Block Information
+                </pou:column>
+            </pou:row>
+        </pou:panelGrid>
+
+        <pou:panelGrid  style="font-size:14px; width: 97%">  
+
+            <pou:row  >
+                <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                    Vendor Name
+                </pou:column>
+                <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px; width: 20%">
+                    #{jlrBlocks.vendorObjTypesENum.roomDesc}
+                    Type
+                </pou:column>
+                <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px; width: 15%" >
+                    #{jlrBlocks.vendorObjTypesENum.costDesc} $
+                </pou:column>
+                <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px; width: 15%">
+                    Count
+                </pou:column>
+                <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px; width: 15%">
+                    Status
+                </pou:column>
+
+            </pou:row>
+            <pou:row  >
+                <pou:column >
+                    #{jlrBlocks.blockBean.vendor}
+                </pou:column>
+                <pou:column >
+                    #{jlrBlocks.blockBean.lookupDesc }
+                </pou:column>
+                <pou:column  >
+                    <pou:inputText value="#{jlrBlocks.blockBean.rmCost}" 
+                                   style=" width:100px; font-size: 14px">
+                        <f:convertNumber 
+                            groupingUsed="true"
+
+                            maxFractionDigits="2"
+                            minFractionDigits="3"
+                            maxIntegerDigits="10"
+                            />
+                    </pou:inputText>
+                </pou:column>
+                <pou:column >
+                    <pou:inputText value="#{jlrBlocks.blockBean.rmCnt}" 
+                                   style=" width:100px; font-size: 14px">
+                        <f:convertNumber
+
+                            type="number"
+                            maxIntegerDigits="10"
+
+                            />
+                    </pou:inputText>
+                </pou:column>
+                <pou:column >
+                    <pou:selectOneMenu 
+                        value="#{jlrBlocks.blockBean.flagInd}"   
+                        style="font-size:14px" >  
+                        <f:selectItems value="#{jlrBlocks.flagStatusList}" 
+                                       var="lookupBean" 
+
+                                       itemLabel="#{lookupBean.desc}" 
+                                       itemValue="#{lookupBean.lookupId}"  
+                                       />
+
+                    </pou:selectOneMenu> 
+                </pou:column>
+
+            </pou:row>
+            <pou:row  >
+                <pou:column  colspan="5" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                    Block Comment
+                </pou:column>
+            </pou:row>
+
+            <pou:row  >
+                <pou:column  colspan="5" >
+                    <pou:inputTextarea value="#{jlrBlocks.blockBean.blockComment}" 
+                                       maxlength="200"  rows="5" cols="50" 
+                                       style=" width:95%"/>
+                </pou:column>
+            </pou:row>
+            <br/>
+        </pou:panelGrid>
+
+        <br/>
+        <pou:toolbar  style=" font-size: 14px" >
+            <pou:toolbarGroup align="left" style="font-size:14px; width: 97%" >
+                <pou:commandButton value="Cancel" action="#{jlrBlocks.newBlockEditCancel()}"/>
+                <pou:commandButton value="Save" action="#{ jlrBlocks.saveBlock()}"/>
+            </pou:toolbarGroup>
+        </pou:toolbar>
+    </pou:outputPanel>
+    <pou:dialog  position="60,260" resizable="false" height="100" width="400"
+                 id="dialogWidgetBlockEditID"  style=" font-size: 14px"
+                 header="Client Booking Wizard" 
+                 widgetVar="dialogWidgetBlockEdit" >  
+        You must first make a selection
+    </pou:dialog> 
+
+</html>
+

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:pou="http://primefaces.org/ui">
+
+    
+
+    <pou:toolbar style=" width: 97%" >
+        <pou:toolbarGroup align="Center" style="font-size:16px; width: 97%" >
+            <h:outputText value="#{jlrMgr.clientBean.displayFullName} Roommate for"  />  
+            <h:outputText value=" #{jlrMgr.vendorBean.vendorName} " />
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    <br/>
+    <pou:panelGrid >
+          <pou:row >
+            <pou:column>
+                  <ui:include src="roommate_view_client_Seek.xhtml" />
+            </pou:column>
+              <pou:column>
+                <ui:include src="roommate_view_client_list.xhtml" />
+            </pou:column>
+          </pou:row>
+    </pou:panelGrid>
+ 
+
+  
+    
+   
+    <br/>
+    <pou:toolbar  style=" width: 97%;font-size:14px;">
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 97%" >
+            <pou:commandButton type="Done"   
+                               action="#{jlrMgrClientRoomate.done()}"
+                               value="Done" style="font-size:14px" 
+                               
+                               />
+            
+           
+       
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+    
+
+    
+   
+
+</html>
+

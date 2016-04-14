@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+     
+     
+    <p:toolbar  >
+        <p:toolbarGroup align="left" style="font-size:14px" >
+                 <p:commandButton value="PDF" style=" font-size: 14px" 
+                                  disabled="#{jlrMgr.demo}"
+                                  action="#{jlrMgrPDF.genPaymentPdfRpt()}" />
+                 
+        </p:toolbarGroup>
+   </p:toolbar>
+     <br/>
+    <p:dataTable  
+                 style=" font-size: 14px" 
+                 var="rptBeanColumes" 
+                 value="#{jlrRptMgr_CustPayment.rptList}">  
+       
+        
+        
+        <p:column width="210"  headerText="Proc. Date" >  
+            <h:outputText value="#{rptBeanColumes.col02}"/>
+
+        </p:column>  
+        <p:column headerText="Description">
+            <h:outputText value="#{rptBeanColumes.col04} "/>
+
+
+        </p:column>  
+        <p:column headerText="Description">
+            <h:outputText value="#{rptBeanColumes.col05}"/>
+
+
+        </p:column>  
+        <p:column width="90"  headerText="Amount" style="text-align:right">  
+            <h:outputText value="#{rptBeanColumes.col01}"/>
+
+        </p:column>  
+        <p:columnGroup type="footer" >
+            <p:row >
+                <p:column colspan="3" footerText="Total" style=" text-align:  right">  
+                    
+                   
+
+                </p:column>  
+                <p:column   footerText="#{jlrRptMgr_CustPayment.totalStr}" style=" text-align:  right">  
+                   
+
+                </p:column>  
+            </p:row>
+        </p:columnGroup>
+    </p:dataTable>
+</html>
+

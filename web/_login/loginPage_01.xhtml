@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <style type="text/css">
+        .ui-layout-north {
+            z-index:20 !important;
+            overflow:visible !important;;
+        }
+
+        .ui-layout-north .ui-layout-unit-content {
+            overflow:visible !important;
+        }
+        .className {
+    vertical-align: top;
+}
+    </style>
+   
+    <pou:panelGrid style="font-size:14px; " columnClasses="className">  
+         <pou:row  >
+             <pou:column   >
+                 <ui:include src="loginPage_01_slideShow.xhtml" />
+                 <br/>
+                 <ui:include src="loginPage_01_user.xhtml" />
+             </pou:column>
+             <pou:column style=" width: 300px" >
+                  <ui:include src="loginPage_01_info.xhtml" />
+             </pou:column>
+             <pou:column >
+                 <ui:include src="ads.xhtml" />
+             </pou:column>
+         </pou:row>
+     
+    </pou:panelGrid>
+   <br/>
+    <ui:include src="ads_bottom.xhtml" />
+</html>
+

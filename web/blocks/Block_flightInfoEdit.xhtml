@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui">
+
+
+    <pou:panelGrid  style="font-size:14px; width: 97%">  
+         
+        <pou:row  >
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Departing From
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Departing Date/Time
+            </pou:column>
+             <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Arriving At
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Arriving Date/Time
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column  >
+                <pou:inputText value="#{jlrBlocks.flightInfoBean.fltDeparturePlace}" 
+                               style=" width:90%; font-size: 14px"
+                               />
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrBlocks.flightInfoBean.fltDepartureDate}" 
+                              showButtonPanel="true"   navigator="true" style="font-size: 14px" size="20"
+                              pattern="MM/dd/yyyy hh:mm a"/>       
+            </pou:column>
+           
+
+    
+       
+            <pou:column  >
+                <pou:inputText value="#{jlrBlocks.flightInfoBean.fltArrivalPlace}" 
+                               style=" width:90%; font-size: 14px"/>
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrBlocks.flightInfoBean.fltArrivalDate}" 
+                              showButtonPanel="true"  navigator="true" style="font-size: 14px" size="20"
+                              pattern="MM/dd/yyyy hh:mm a"/>  
+            </pou:column>
+        </pou:row>
+    </pou:panelGrid>
+    
+   
+
+
+</html>
+

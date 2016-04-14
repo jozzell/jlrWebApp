@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+        xmlns:pou="http://primefaces.org/ui">
+
+    
+    <pou:dataTable  style="width: 97%; font-size: 14px"
+                   var="clientRmBean"  
+                   rowKey="#{clientRmBean.clientRmID}"
+                    paginator="true" rows="10" tableStyleClass="ui-table-columntoggle"
+                    selection="#{jlrMgrClientRoomate.clientRmBean}"
+                    selectionMode="single"
+                    value="#{jlrMgrClientRoomate.getclientRmModel()}"  >  
+         
+       
+        <pou:column  headerText="Group Name" style="font-size:14px">  
+            #{clientRmBean.desc}  
+        </pou:column>  
+        <pou:column  headerText="Vendor Name" style="font-size:14px">  
+            #{clientRmBean.vendorName}  
+        </pou:column>  
+        <pou:column  headerText="Type" style="font-size:14px">  
+            #{clientRmBean.sysName} 
+        </pou:column>  
+       <pou:column  headerText="Cnt" style="font-size:14px">  
+            #{clientRmBean.count} 
+        </pou:column>  
+
+    </pou:dataTable>
+    <br/>
+    <pou:toolbar  id="tbClient" style=" width: 100%" >
+        <pou:toolbarGroup id="tbClientGrp" align="left" style="font-size:14px; width: 97%"  >
+            <pou:commandButton value="Back"   action="#{jlrMgr.clientOptions()}" />
+            <pou:commandButton value="Show Workflow"      
+                                   style=" font-size: 14px"
+                                   action="#{jlrMgr.workFlow()}"  />
+
+            <pou:commandButton value="Create Roommate Group"   action="#{jlrMgrClientRoomate.add()}" />
+            <pou:commandButton value="Edit Roommate Group"  icon="ui-icon-bullet"  action="#{jlrMgrClientRoomate.edit()}" />
+        </pou:toolbarGroup>
+    </pou:toolbar>
+        <pou:dialog  position="60,260" resizable="false" height="100" width="400"
+                 id="basicDialogBlockMsg"  style=" font-size: 14px"
+                 header="Edit..." 
+                 widgetVar="dialogWidgetbasicDialogBlockMsg" >  
+        You first must make a selection before you can continue
+    </pou:dialog> 
+</html>
+

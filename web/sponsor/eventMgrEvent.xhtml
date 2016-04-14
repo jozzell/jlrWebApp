@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+     
+    <ui:include src="../flow/flow_.xhtml" />
+    <ui:include  src="company_info_display.xhtml"/>
+    <br/>
+    <pou:dataTable   
+        var="sponsorBean" 
+        selectionMode="single"
+        rowKey="#{sponsorBean.sponsorId}"
+        selection="#{jlrVendor_Event.sponsorBean}"
+        value="#{jlrVendor_Event.sponsorListModel}"  
+        style="font-size:14px; width: 95%" >  
+        <f:facet name="header">  
+            Event List
+        </f:facet>  
+          
+
+        <pou:column  style="width:8%">  
+            <f:facet name="header">  
+                <h:outputText value="Status"  />  
+
+            </f:facet>  
+            <h:outputText value="#{sponsorBean.flagIdString}"  />  
+        </pou:column>  
+
+        <pou:column  style="font-size:14px; width: 30%">  
+            <f:facet name="header">  
+                <h:outputText value="Event"  />  
+            </f:facet>  
+            <h:outputText value="#{sponsorBean.sponsorDesc}"  />  
+        </pou:column> 
+        <pou:column  style="font-size:14px; width: 30%">  
+            <f:facet name="header">  
+                <h:outputText value="Event Vendor"  />  
+            </f:facet>  
+            <h:outputText value="#{sponsorBean.vendorName}"  />  
+        </pou:column> 
+        <pou:column  style="font-size:14px">  
+            <f:facet name="header">  
+                <h:outputText value="Start Date"  />  
+            </f:facet>  
+            <h:outputText value="#{sponsorBean.effDateStr}"  />  
+        </pou:column> 
+
+
+
+    </pou:dataTable>
+    <br/>
+    <pou:toolbar style=" width: 95%" >
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 100%" >
+            <pou:commandButton  value="Add Event"   
+                                rendered="#{jlrMgr.demo}"
+                                 action="#{jlrVendor_Event.eventNew()}" />
+            <pou:commandButton  value="Manage Event (Next)"   
+                                icon="ui-icon-bullet" 
+                                action="#{jlrVendor_Event.eventListNext()}" />
+
+        </pou:toolbarGroup>
+
+    </pou:toolbar>
+    <br/>
+    <pou:diagram value="#{jlrFlow_Home.genHome()}" style="height:600px; font-size: 10px"/>
+    
+    
+    <pou:dialog  position="60,160" resizable="false"
+                 id="basicDialogSelectEventID"  style=" font-size: 14px"
+                 header="New Event" 
+                 widgetVar="dialogWidget" >  
+        No Event was selected
+    </pou:dialog> 
+
+   
+
+    
+    
+    
+</html>
+

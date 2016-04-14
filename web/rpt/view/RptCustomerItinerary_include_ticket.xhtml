@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+
+
+
+
+    <f:facet name="header">
+        Confirmation
+    </f:facet>
+  
+    <pou:column headerText="Status"  style=" width: 10%">
+        <pou:outputLabel value="#{rptItineraryBean.sysDesc}"/>
+    </pou:column>
+    <pou:column  headerText="Ticket/Package Info">
+        <pou:outputLabel value=" #{rptItineraryBean.vendorName} #{rptItineraryBean.roomDesc} #{rptItineraryBean.ticketInfo}"/> 
+       
+    </pou:column>
+
+    <pou:column   headerText="Days" style=" width: 5%;text-align:  right">
+        <pou:outputLabel value="#{rptItineraryBean.days}"/>
+    </pou:column>
+
+    <pou:column   headerText="Count" style=" text-align:  right;width: 10%">
+        <pou:outputLabel value="#{rptItineraryBean.custRmCnt}"/>
+        <pou:outputLabel value="#{rptItineraryBean.split()}"/>
+    </pou:column>
+    <pou:column   headerText="Cost $" style=" text-align:  right;width: 8%">
+        <pou:outputLabel value="#{rptItineraryBean.rmCost}"/>
+    </pou:column>
+
+    <pou:column   headerText="Total $" style=" text-align:  right;width: 8%">
+        <pou:outputLabel value="#{rptItineraryBean.totalCost}"/>
+    </pou:column>
+
+
+
+    <pou:column  headerText="Starting Date"  style=" text-align:  center;width: 12%">
+        <pou:outputLabel value="#{rptItineraryBean.effDate}"/>
+    </pou:column>
+
+    <pou:column  headerText="Balance Due"  style=" text-align:  center;width: 12%">
+        <pou:outputLabel value="#{rptItineraryBean.balancedDueDate}"/>
+    </pou:column>
+
+    
+</html>
+

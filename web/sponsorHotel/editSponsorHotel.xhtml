@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+ <pou:toolbar > 
+                <pou:toolbarGroup align="left" style="font-size:16px; width: 400px" >
+                    <pou:outputLabel value="Edit Vendor Event information" />
+                    
+                </pou:toolbarGroup>
+            </pou:toolbar>
+ <br/>
+    
+    <pou:panelGrid columns="2" style="font-size:10px; width: 400px" >  
+       
+
+        
+        <h:outputLabel value="#{jlBookingMgr.sponsorHotelBean.vendorTypeDesc}" style="font-size:10px"  />
+
+        
+        <h:outputLabel value="#{jlBookingMgr.sponsorHotelBean.vendorName}" style="font-size:10px"  />
+
+        <h:outputLabel value="Status" style="font-size:10px"  />
+        <pou:selectOneMenu 
+            value="#{jlBookingMgr.sponsorHotelBean.flag_Ind}"   
+                    style="font-size:10px" >  
+                    <f:selectItems value="#{jlBookingMgr.flagStatusList}" 
+                                   var="lookupBean" 
+
+                                   itemLabel="#{lookupBean.desc}" 
+                                   itemValue="#{lookupBean.lookupId}"  
+                                   />
+
+                </pou:selectOneMenu> 
+
+        <h:outputLabel value="Processing Fee" style="font-size:10px"  />
+         <pou:inputText value="#{jlBookingMgr.sponsorHotelBean.process_fee}" 
+                               size="20"
+                               >
+                    <f:convertNumber 
+                        groupingUsed="true"
+                        currencySymbol="$"
+                        maxFractionDigits="2"
+                        minFractionDigits="3"
+                        maxIntegerDigits="10"
+                        type="currency"/>
+                </pou:inputText>
+        
+        
+  
+
+        <h:outputLabel value="Note" style="font-size:10px"  />
+        <pou:inputTextarea rows="1" cols="50"  maxlength="200"    
+                           value="#{jlBookingMgr.sponsorHotelBean.location}"    
+                           autoResize="false" style="font-size:10px"/>  
+        <h:outputLabel value="Comment" style="font-size:10px"  />
+        <pou:inputTextarea rows="1" cols="50"  maxlength="200"    
+                           value="#{jlBookingMgr.sponsorHotelBean.report_comment}"    
+                           autoResize="false" style="font-size:10px"/>  
+
+
+        <h:outputLabel value="Effective date" style="font-size:10px"  />
+        <pou:calendar value="#{jlBookingMgr.sponsorHotelBean.eff_date}"  
+                      showButtonPanel="true"   navigator="true"
+                      pattern="MM/dd/yyyy" />  
+
+        <h:outputLabel value="Ending date" style="font-size:10px"  />
+        <pou:calendar value="#{jlBookingMgr.sponsorHotelBean.end_date}"  
+                      showButtonPanel="true"   navigator="true"
+                      pattern="MM/dd/yyyy" />  
+
+        <h:outputLabel value="Balance due" style="font-size:10px"  />
+        <pou:calendar value="#{jlBookingMgr.sponsorHotelBean.balance_due_by}"  
+                      showButtonPanel="true"   navigator="true"
+                      pattern="MM/dd/yyyy" />  
+
+        <h:outputLabel value="Cut off Date" style="font-size:10px"  />
+        <pou:calendar value="#{jlBookingMgr.sponsorHotelBean.cutoff_date}"   
+                      showButtonPanel="true"   navigator="true"
+                      pattern="MM/dd/yyyy"/>  
+
+        <h:outputLabel value="Cancel Date" style="font-size:10px"  />
+        <pou:calendar value="#{jlBookingMgr.sponsorHotelBean.cancel_date}"  
+                      showButtonPanel="true"   navigator="true"
+                      pattern="MM/dd/yyyy" />  
+
+        <h:outputLabel value="Check Due by" style="font-size:10px"  />
+        <pou:calendar value="#{jlBookingMgr.sponsorHotelBean.check_due_by}"  
+                      showButtonPanel="true"   navigator="true"
+                      pattern="MM/dd/yyyy" />  
+    </pou:panelGrid>
+    <br/>
+      <pou:toolbar >
+                <pou:toolbarGroup align="left" style="font-size:10px; width: 400px" >
+                    <pou:commandButton value="Cancel"  action="#{jlBookingMgr.sponsorHotelObjMGR.wizardCancel()}" />
+                    <pou:commandButton value="Save"  action="#{jlBookingMgr.sponsorHotelObjMGR.wizardUpdate()}" />
+                </pou:toolbarGroup>
+            </pou:toolbar>
+
+</html>
+

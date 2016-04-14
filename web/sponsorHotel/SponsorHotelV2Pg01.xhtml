@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui">
+  
+    <pou:dataTable  
+        var="sponsorHotelBean" 
+        value="#{jlrSponsorHotel.sponsorHotelListModel}"  
+        selection="#{jlrSponsorHotel.sponsorHotelBean}"
+        selectionMode="single"
+        rowKey="#{sponsorHotelBean.sponsor_hotel_id}"
+        style="font-size:14px; width: 100%" >  
+
+        <f:facet name="header">  
+            Event Vendor List
+            <br/>
+        </f:facet>  
+          
+        <pou:column style="width:2%">  
+            <pou:rowToggler />  
+        </pou:column>  
+        <pou:column  style="font-size:14px">  
+            <f:facet name="header">  
+                <h:outputText value="Desc"  />  
+
+            </f:facet>  
+            <h:outputText value="#{sponsorHotelBean.vendorTypeDesc}"  />  
+        </pou:column>  
+        <pou:column  style="font-size:14px; width: 300px">  
+            <f:facet name="header">  
+                <h:outputText value="Vendor"  />  
+
+            </f:facet>  
+            <h:outputText value="#{sponsorHotelBean.vendorName}"  />  
+        </pou:column>  
+
+        <pou:column  style="font-size:14px; width: 15%">  
+            <f:facet name="header">  
+                <h:outputText value="Check Due By"  />  
+            </f:facet>  
+            <h:outputText value="#{sponsorHotelBean.check_due_by}"  />  
+        </pou:column> 
+        <pou:column  style="font-size:14px; width: 15%">  
+            <f:facet name="header">  
+                <h:outputText value="Balance Due"  />  
+            </f:facet>  
+            <h:outputText value="#{sponsorHotelBean.balance_due_by}"  />  
+        </pou:column> 
+        <pou:rowExpansion>  
+            <h:panelGrid  columns="4" cellpadding="4" style="width:97%">  
+                <f:facet name="header">  
+                    #{sponsorHotelBean.beanInfo}
+                </f:facet>  
+                <h:outputText value="Proc. Fee" style="text-align:  center ; background-color:  lightblue; font-size:14px" />
+                <h:outputText value="Cut Off Date" style="text-align:  center ; background-color:  lightblue; font-size:14px" /> 
+                <h:outputText value="Starting Date"  style="text-align:  center ; background-color:  lightblue; font-size:14px"/>  
+                <h:outputText value="Endikng Date" style="text-align:  center ; background-color:  lightblue; font-size:14px" />  
+                <h:outputText value="#{sponsorHotelBean.process_fee}"  />  
+                <h:outputText value="#{sponsorHotelBean.cutoff_date}"  />  
+                <h:outputText value="#{sponsorHotelBean.eff_date}"  />  
+                <h:outputText value="#{sponsorHotelBean.end_date}"  /> 
+                <f:facet name="footer">  
+
+                </f:facet> 
+            </h:panelGrid>
+            <h:panelGrid  cellpadding="4" style="width:97%">  
+                <h:outputText value="Management Note: #{sponsorHotelBean.location}"  />
+                <h:outputText value="Itinerary Note: #{sponsorHotelBean.report_comment}"  />
+            </h:panelGrid>
+        </pou:rowExpansion>
+    </pou:dataTable>
+    <br/>
+   <pou:toolbar style="width: 100%" >
+        <pou:toolbarGroup align="left" style="font-size:14px" >
+            <pou:commandButton value="Edit Event Detail"  icon="ui-icon-bullet"   action="#{jlrSponsorHotel.editSponsorHotel()}" />
+            <pou:commandButton  value="Vendor Payment"  icon="ui-icon-bullet"   action="#{jlrSponsorHotel.paymentSponsorHotel()}" />
+            
+           <pou:splitButton value="Payment Report"  icon="ui-icon-bullet"   style="font-size:14px"
+                             action="#{jlrSponsorHotel.vendorPayment()}" >  
+    
+                <pou:menuitem value="Roommate Report"  icon="ui-icon-bullet"   style="font-size:14px"
+                              action="#{jlrSponsorHotel.vendorRoommate()}"/>  
+                
+                <pou:menuitem value="Booking Report"  icon="ui-icon-bullet"   style="font-size:14px"
+                              action="#{jlrSponsorHotel.rptBookingRpt()}"/>  
+                
+                <pou:menuitem value="1st Night Deposit Report"  icon="ui-icon-bullet"   style="font-size:14px"
+                              action="#{jlrSponsorHotel.rptBookingRpt1StNight()}"/>  
+           </pou:splitButton>
+        
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+   <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidget" 
+                  position="60,260" height="100" width="250" style=" font-size: 14px" >  
+        No Vendor was Selected (Click Gray Circle and Row will turn Yellow when selected)
+    </pou:dialog>
+</html>
+

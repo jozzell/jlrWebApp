@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+        <pou:toolbar  >
+        <pou:toolbarGroup align="left" style="font-size:14px" >
+                 <pou:commandButton value="Done" style=" font-size: 14px" 
+                                    action="#{jlrMgr.rootBlock()}" />
+                  
+        </pou:toolbarGroup>
+   </pou:toolbar>
+     <br/>
+    <pou:dataTable var="rptBeanColumesAmtList" value="#{jlrRptMgr_Event.rptBlock}"
+              style=" font-size: 14px"       >
+              <f:facet name="header">
+           Reserve Block Report
+        </f:facet>
+        <pou:columnGroup type="header">
+            
+            <pou:row>
+                <pou:column headerText="Vendor" />
+                <pou:column headerText="Status" width="120" />
+                <pou:column headerText="Description"  />
+                <pou:column headerText="Start Date"  />
+                <pou:column headerText="End Date"  />
+                <pou:column headerText="Cost" width="75"/>
+                <pou:column headerText="Count" width="50"/>
+                <pou:column headerText="Booked Count" width="50"/>
+                
+               
+                <pou:column headerText="Booked Total" width="75" />
+
+               
+            </pou:row>
+        </pou:columnGroup>
+        <pou:subTable var="rptBeanColumes" value="#{rptBeanColumesAmtList.rptList}">
+            
+            <pou:column >
+                #{rptBeanColumes.col02}
+                 
+                
+                 
+            </pou:column>
+            <pou:column>
+                #{rptBeanColumes.col03}
+            </pou:column>
+             <pou:column>
+                #{rptBeanColumes.col10}
+            </pou:column>
+            
+            <pou:column>
+                #{rptBeanColumes.col08}
+            </pou:column>
+             <pou:column>
+                #{rptBeanColumes.col09}
+            </pou:column>
+            
+            
+             <pou:column  style=" text-align:  right">
+                #{rptBeanColumes.col05}
+            </pou:column>
+            <pou:column  style=" text-align:  right">
+                #{rptBeanColumes.col12}
+            </pou:column>
+            <pou:column  style=" text-align:  right">
+                #{rptBeanColumes.col04}
+            </pou:column>
+           
+            
+            <pou:column  style=" text-align:  right">
+                #{rptBeanColumes.col07}
+            </pou:column>
+            
+           
+            <pou:columnGroup type="footer">
+                <pou:row>
+                    <pou:column colspan="7" footerText="Totals: " style="text-align:right"/>
+                    <pou:column  footerText="#{rptBeanColumesAmtList.total[0]}" style="text-align:right"/>
+                    <pou:column  footerText="#{rptBeanColumesAmtList.header}" style="text-align:right"/>
+                   
+                </pou:row>
+            </pou:columnGroup>
+            
+        </pou:subTable>
+         <f:facet name="footer" >
+            
+                
+               
+             <h:outputText value="Bookend Count = #{jlrRptMgr_Event.cnt} @ Grand Total = #{jlrRptMgr_Event.amt}" style=" text-align:  right"/>
+               
+           
+            </f:facet>
+    </pou:dataTable>
+</html>
+

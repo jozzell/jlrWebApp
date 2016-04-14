@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+    <pou:toolbar > 
+        <pou:toolbarGroup align="left" style="font-size:10px; width: 100%" >
+            <pou:outputLabel value="User Information (Admin)" />
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    <br/>
+    <pou:panelGrid style="font-size:10px">  
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:10px" >
+                Comapany Name
+            </pou:column>
+            <pou:column colspan="3"  >
+              #{jlBookingMgr_V2.companyBean.vendorName}
+            </pou:column>
+        </pou:row>
+       
+
+        <pou:row  >
+            <pou:column colspan="1" style="color:  red;text-align:  right ; background-color:  lightblue; font-size:10px" >
+                E-Mail* (user)
+            </pou:column>
+            <pou:column colspan="3"  >
+                <pou:inputText value="#{jlBookingMgr_V2.loginBean.email}" 
+                               style=" width:250px" />
+            </pou:column>
+
+        </pou:row>
+
+
+
+
+        <pou:row  >
+            <pou:column colspan="1" style="color:  red;text-align:  right ; background-color:  lightblue; font-size:10px" >
+                Password
+            </pou:column>
+            <pou:column colspan="1" style=" font-size:10px" >
+                <pou:password value="#{jlBookingMgr_V2.loginBean.passWord}" 
+                               style=" width:100px"/>
+            </pou:column>
+            <pou:column colspan="1" style="color:  red;text-align:  right ; background-color:  lightblue; font-size:10px" >
+                Verifiy
+            </pou:column>
+            <pou:column colspan="1" style=" font-size:10px" >
+                <pou:password value="#{jlBookingMgr_V2.loginBean.passWordCheck}" 
+                               style=" width:100px"/>
+            </pou:column>
+
+
+
+        </pou:row>
+
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:10px" >
+                First Name
+            </pou:column>
+            <pou:column colspan="1" style=" font-size:10px" >
+                <pou:inputText value="#{jlBookingMgr_V2.loginBean.firstName}" 
+                               style=" width:100px"/>
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  right ; background-color:  lightblue; font-size:10px" >
+                Last Name
+            </pou:column>
+            <pou:column colspan="1" style=" font-size:10px" >
+                <pou:inputText value="#{jlBookingMgr_V2.loginBean.lastName}" 
+                               style=" width:100px"/>
+            </pou:column>
+
+
+
+        </pou:row>
+
+
+
+
+    </pou:panelGrid>
+    <br/>
+    <pou:toolbar >
+        <pou:toolbarGroup align="left" style="font-size:10px; width: 390px" >
+            <pou:commandButton value="Back" action="#{jlBookingMgr_V2.jlBookingMgr_V2_URL.newCompanyPg2Back()}"/>
+            <pou:commandButton value="Create Account" 
+                               update="basicDialogMsgNewPg1ID"
+                               action="#{jlBookingMgr_V2.jlBookingMgr_V2_URL.newCompanyPg2()}"/>
+            <pou:dialog   id="basicDialogMsgNewPg1ID" 
+                           header="Warning" 
+                           widgetVar="basicDialogMsgNewPg1"
+                  position="50,150" height="100" width="250">  
+                    #{jlBookingMgr_V2.jlBookingMgr_V2_URL.dialogMsg}
+            </pou:dialog>
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+</html>
+

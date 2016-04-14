@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <p:dataTable  
+                 style=" font-size: 14px" 
+                 var="rptBeanColumesAmtList" 
+                 value="#{jlrRptMgr_VendorPayment.list}">  
+        <p:columnGroup type="header">
+            <p:row>
+                <p:column  headerText="Proc. Date"  width="180"/>
+                <p:column  headerText="Description" />
+                <p:column  headerText="Payment Method" />
+                <p:column headerText="Amount" width="90"/>
+            </p:row>
+        </p:columnGroup>
+        <p:subTable var="rptBeanColumes" value="#{rptBeanColumesAmtList.rptList}">
+            <f:facet name="header" >
+                <h:outputText value="#{rptBeanColumesAmtList.header}"  />
+            </f:facet>
+            <p:column width="180"  headerText="Proc. Date" >  
+
+                <h:outputText value="#{rptBeanColumes.col02}"/>
+
+            </p:column>  
+            <p:column headerText="Description">
+                <h:outputText value="#{rptBeanColumes.col04} "/>
+
+
+            </p:column>  
+            <p:column headerText="Description">
+                <h:outputText value="#{rptBeanColumes.col05}"/>
+
+
+            </p:column>  
+            <p:column width="90"  headerText="Amount" style="text-align:right">  
+                <h:outputText value="#{rptBeanColumes.col01}"/>
+
+            </p:column>  
+            <p:columnGroup type="footer" >
+                <p:row >
+                    <p:column colspan="3" footerText="#{rptBeanColumesAmtList.header} Total" style=" text-align:  right">  
+                    </p:column>  
+                    <p:column   footerText="#{rptBeanColumesAmtList.amtStr}" style=" text-align:  right">  
+                    </p:column>  
+                </p:row>
+            </p:columnGroup>
+        </p:subTable>
+        <f:facet name="footer" >
+
+
+
+            <h:outputText value="Grand Total #{jlrRptMgr_CustPayment.grandTotal}" style=" text-align:  right"/>
+
+
+        </f:facet>
+    </p:dataTable>
+</html>
+

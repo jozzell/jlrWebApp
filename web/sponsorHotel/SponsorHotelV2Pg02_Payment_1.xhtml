@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+ 
+    <pou:toolbar  style=" width: 97%" >
+
+        <pou:toolbarGroup align="left" style="font-size:10px; width: 97%" >
+            <pou:outputLabel value="#{jlBookingMgr_V2.customerPaymentObjMgr_V2.custPayBean.vendor} Payment for" />
+            <br/>
+            <pou:outputLabel value="#{jlBookingMgr_V2.sponsorBean.sponsorDesc}" />
+
+        </pou:toolbarGroup>
+
+    </pou:toolbar>
+
+    <ui:include src="/jlRoomsWebApp/lookupPayment/Payment_V2_include.xhtml"  />
+
+    <br/>
+    <pou:toolbar  style=" width: 97%" >
+        <pou:toolbarGroup align="left" style="font-size:10px" >
+            <pou:commandButton value="Cancel" action="#{ jlBookingMgr_V2.sponsorHotelObjMgr_V2.cancel()}"/>
+            <pou:splitButton value="Add Category"  update="basicDialogEditPayment"    action="#{ jlBookingMgr_V2.customerPaymentObjMgr_V2.paymentCategoryAdd()}">  
+                <pou:menuitem value="Edit Category"  update="basicDialogEditPayment"   style="font-size:10px"
+                              action="#{jlBookingMgr_V2.customerPaymentObjMgr_V2.paymentCategoryEdit()}"/>  
+            </pou:splitButton>
+            <pou:splitButton value="Add Method"   update="basicDialogEditPayment"   action="#{jlBookingMgr_V2.customerPaymentObjMgr_V2.paymentMethodAdd()}">  
+                <pou:menuitem value="Edit Method"  update="basicDialogEditPayment"   style="font-size:10px"
+                              action="#{jlBookingMgr_V2.customerPaymentObjMgr_V2.paymentMethodEdit()}"/>  
+            </pou:splitButton>
+            <pou:commandButton value="Save" update="basicDialogWarnPaymentSave" action="#{ jlBookingMgr_V2.customerPaymentObjMgr_V2.customerPaymentSave()}"/>
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    
+    
+    <pou:dialog  position="60,260" resizable="false"   id="basicDialogEditPayment" header="#{jlBookingMgr_V2.customerPaymentObjMgr_V2.wrnMsg} Maintenance" widgetVar="dialogWidgetbasicDialogEditPayment" >  
+        <pou:outputPanel id="basicDialogEditPayment_panel" style="margin-bottom:10px; font-size:10px" >  
+            <ui:include src="/jlRoomsWebApp/lookupPayment/Payment_V2_LookupEdit.xhtml" />
+        </pou:outputPanel>
+    </pou:dialog> 
+    <pou:dialog   id="basicDialogWarnPaymentSave" header="Warning" widgetVar="dialogWidgetbasicDialogWarnPaymentSave"
+                  position="60,260" height="100" width="250">  
+                    #{jlBookingMgr_V2.customerPaymentObjMgr_V2.wrnMsg}
+    </pou:dialog>
+
+</html>
+
+

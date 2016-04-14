@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+ 
+        <pou:toolbar  >
+         <pou:toolbarGroup align="left" style="font-size:16px" >
+             <h:outputText value="#{jlrMgr.clientBean.displayFullName} Reservation"/>
+         </pou:toolbarGroup>
+     </pou:toolbar>
+    <br/>
+    
+  
+    <pou:dataTable  
+        var="custRmBean" 
+        rowKey="#{custRmBean.custRoomId}"
+        value="#{jlrMgrClientBooking.custRmListModel}"  
+        selectionMode="single"
+        selection="#{jlrMgrClientBooking.custRmBean}"
+        style="font-size:14px; width: 97%" >  
+
+        <f:facet name="header">  
+            Current Booking for #{jlrMgr.clientBean.displayFullName}
+            <br/>
+
+        </f:facet>  
+        
+        <pou:column style="width:1%">  
+            <pou:rowToggler />  
+        </pou:column>  
+        
+        
+        <pou:column  style="font-size:14px">  
+            <f:facet name="header">  
+                <h:outputText value="Vendor"  />  
+
+            </f:facet>  
+            <h:outputText value="#{custRmBean.vendor}"  />  
+            
+        </pou:column>  
+
+        <pou:column  style="font-size:14px;width: 15%  ">  
+            <f:facet name="header">  
+                <h:outputText value="Booking"  />  
+            </f:facet>  
+            <h:outputText value="#{custRmBean.lookupDesc}"  />  
+            
+        </pou:column> 
+        <pou:column  width="200" style="font-size:14px;">  
+            <f:facet name="header">  
+                <h:outputText value="Date"  />  
+            </f:facet>  
+            <h:outputText value="#{custRmBean.rptDateDisplay}"  />  
+        </pou:column>
+        
+
+
+        <pou:column  width="130" style="font-size:14px; width: 10% ">  
+            <f:facet name="header">  
+                <h:outputText value="Status"  />  
+            </f:facet>  
+            <h:outputText value="#{custRmBean.rmTypeDesc}"  />  
+        </pou:column>
+        
+        <pou:column  width="80" style="font-size:14px; width: 10%; text-align:  right ">  
+            <f:facet name="header">  
+                <h:outputText value="Cost"  />  
+            </f:facet>  
+            <h:outputText value="$#{custRmBean.rmCost}"  />  
+        </pou:column>
+        <pou:column  width="100" style="font-size:14px; width: 10%; text-align:  right ">  
+            <f:facet name="header">  
+                <h:outputText value="Cnt"  />  
+            </f:facet>  
+            <h:outputText value="#{custRmBean.custRoomCnt}"  />  
+            <h:outputText value="#{custRmBean.splitDisp}"  />  
+        </pou:column>
+        
+        <pou:column width="80"  style="font-size:14px; width: 10%; text-align:  right ">  
+            <f:facet name="header">  
+                <h:outputText value="Total"  />  
+            </f:facet>  
+            <h:outputText value="$#{custRmBean.totalCost}"  />  
+        </pou:column>
+        
+        <pou:rowExpansion> 
+            <h:outputText value="#{custRmBean.vendor}"  /> 
+            <br/>
+            <h:outputText value="#{custRmBean.dspStr1}"  />  
+            <br/>
+            
+            <h:panelGrid  columns="2" cellpadding="4" style="width:300px;"  
+                         styleClass=" ui-widget-content grid">  
+
+               
+
+                <h:outputText value="Cost:" />  
+                <h:outputText value="#{custRmBean.rmCost}" />  
+
+                <h:outputText value="Total Cost:" />  
+                <h:outputText value="#{custRmBean.totalCost}" /> 
+
+                <h:outputText value="Count:" />  
+                <h:outputText value="#{custRmBean.custRoomCnt}" />
+
+                <f:facet name="footer">  
+                    <h:outputText value="#{custRmBean.roomComment}" /> 
+                </f:facet> 
+
+            </h:panelGrid>
+        </pou:rowExpansion>
+    </pou:dataTable>
+    <br/>
+    <pou:toolbar style=" width: 97%" >
+        <pou:toolbarGroup align="left" style="font-size:14px;width: 97%" >
+            <pou:commandButton value="Done"    action="#{jlrMgrClientBooking.done()}" />
+            <pou:commandButton value="Show Workflow"      
+                                   style=" font-size: 14px"
+                                   action="#{jlrMgr.workFlow()}"  />
+
+            <pou:commandButton value="Edit Res."  
+                               icon="ui-icon-bullet"   
+                               action="#{jlrMgrClientBooking.editBookRes()}" />
+            <pou:commandButton value="Add Res."     
+                               action="#{jlrMgrClientBooking.addBookRes()}" />
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+  <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidget" 
+                position="60,260" height="100" width="250" style=" font-size: 14px">  
+        Nothing was selected (Click Gray Circle and Row will turn Yellow when selected)
+    </pou:dialog>
+</html>
+

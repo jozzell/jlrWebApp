@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+    <ui:include src="flow/flow_.xhtml" />
+    <pou:accordionPanel multiple="false"   
+                        dynamic="true"
+                        style=" width: 820px; font-size: 14px" 
+                        activeIndex="#{jlrMgr.workFlwPtr}">
+        <pou:tab title="jlRooms Workflow"   >
+            <pou:diagram value="#{jlrFlow_Home.genHome()}" style="height:600px; font-size: 10px"/>
+        </pou:tab>
+        <pou:tab title="Vendor Payment">
+            <pou:diagram value="#{jlrFlow_Client_Vendor_Payment.genPayment()}" style="height:600px;; font-size: 10px"/>
+        </pou:tab>
+        <pou:tab title="Block">
+            <pou:diagram value="#{jlrFlow_Client_Block.genModel()}" style="height:600px;; font-size: 10px"/>
+        </pou:tab>
+        <pou:tab title="Booking (Client Workflow)">
+            <pou:diagram value="#{jlrFlow_Client_Booking.genModel()}" style="height:600px;; font-size: 10px"/>
+        </pou:tab>
+         <pou:tab title="Payment (Client Workflow)">
+             <pou:diagram value="#{jlrFlow_Client_Payment.genPayment()}" style="height:600px;; font-size: 10px"/>
+        </pou:tab>
+        <pou:tab title="Roommate (Client Workflow)">
+            <pou:diagram value="#{jlrFlow_Client_Roommate.roommate}" style="height:600px;; font-size: 10px"/>
+        </pou:tab>
+       
+    </pou:accordionPanel>
+    
+    
+</html>

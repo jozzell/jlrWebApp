@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <pou:panelGrid  style="font-size:14px; width: 97%">  
+         <pou:row  >
+             <pou:column  colspan="5" style="text-align:  center ; background-color:  lightblue; font-size:16px" >
+                 #{jlrMgr.jlrMgrBean.vendorName} #{jlrFlightMgr.vendorObjTypesENum.header}
+             </pou:column>
+         </pou:row>
+        <pou:row  >
+            <pou:column  style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                #{jlrFlightMgr.vendorObjTypesENum.subRmDesc}
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Departing From
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Departing Date/Time
+            </pou:column>
+             <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Arriving At
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Arriving Date/Time
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column  >
+                <pou:inputText size="70" value="#{jlrFlightMgr.flightInfoBean.fltNumber}" 
+                               style=" width:200px; font-size: 14px"/>
+            </pou:column>
+            <pou:column  >
+                <pou:inputText value="#{jlrFlightMgr.flightInfoBean.fltDeparturePlace}" 
+                               style=" width:90%; font-size: 14px"
+                               />
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrFlightMgr.flightInfoBean.fltDepartureDate}" 
+                              showButtonPanel="true"   navigator="true" style="font-size: 14px" size="20"
+                              pattern="MM/dd/yyyy hh:mm a"/>       
+            </pou:column>
+           
+
+    
+       
+            <pou:column  >
+                <pou:inputText value="#{jlrFlightMgr.flightInfoBean.fltArrivalPlace}" 
+                               style=" width:90%; font-size: 14px"/>
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrFlightMgr.flightInfoBean.fltArrivalDate}" 
+                              showButtonPanel="true"  navigator="true" style="font-size: 14px" size="20"
+                              pattern="MM/dd/yyyy hh:mm a"/>  
+            </pou:column>
+        </pou:row>
+    </pou:panelGrid>
+     <br/>
+             <pou:toolbar >
+                <pou:toolbarGroup align="left" style="font-size:14px; width: 100%" >
+                    
+                    <pou:commandButton value="Cancel"  action="#{jlrFlightMgr.fltCancel()}" />
+                    
+<pou:commandButton id="imageBtn"  type="button" icon="ui-icon-help" />
+            <pou:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+                <ui:include src="../help/clientBookingWizard/pg6_flight_Edit.xhtml" />
+
+            </pou:overlayPanel>
+
+                    <pou:commandButton value="Save"  action="#{jlrFlightMgr.fltSave()}" />
+                    
+                </pou:toolbarGroup>
+            </pou:toolbar>
+   
+
+
+</html>
+

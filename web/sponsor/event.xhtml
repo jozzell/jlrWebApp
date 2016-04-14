@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui">
+ 
+    
+
+    <pou:panelGrid  style="font-size:14px; width: 800px">  
+
+        <pou:row  >
+             <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+               Login
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Company
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                E-Mail
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Site ID
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+             <pou:column colspan="1" style="text-align:  center ;  font-size:14px" >
+                #{jlrMgr.userLoginBean.displayFullName}
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ;  font-size:14px" >
+                #{jlrMgr.companyBean.vendorName}
+            </pou:column>
+
+            <pou:column colspan="1" style="text-align:  center ; font-size:14px" >
+                #{jlrMgr.companyBean.EMail}
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; font-size:14px" >
+                #{jlrMgr.companyBean.keyStr}
+            </pou:column>
+        </pou:row>
+    </pou:panelGrid>
+</html>
+

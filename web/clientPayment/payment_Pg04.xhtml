@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui">
+    <pou:panelGrid   style="margin-top:20px;  width: 600px"> 
+        <pou:row  >
+            <pou:column colspan="4" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Payment Type
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="4" style=" font-size: 14px"  >
+                #{jlrMgr.jlrMgrClientPaymentBean.typeDesc}
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Payment Category
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Payment Method
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Payment
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:14px">
+                Eff. Date
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column  >
+                <pou:selectOneMenu id ="list_category" 
+                                   value="#{jlrMgrClientPayment.custPayBean.paymentCategory}"   
+                                   style="font-size:14px; width: 250px"
+                                   >  
+                    <f:selectItems value="#{jlrMgrClientPayment.catagoryLookupList}" 
+                                   var="lookupBean" 
+
+                                   itemLabel="#{lookupBean.desc}" 
+                                   itemValue="#{lookupBean.lookupId}"  
+                                   />
+
+                </pou:selectOneMenu> 
+            </pou:column>
+            <pou:column >
+                <pou:selectOneMenu 
+                    value="#{jlrMgrClientPayment.custPayBean.paymentRollup}"   
+                    style="font-size:14px; width: 190px" 
+                    >  
+                    <f:selectItems value="#{jlrMgrClientPayment.methodLookupList}" 
+                                   var="lookupBean"  
+
+                                   itemLabel="#{lookupBean.desc}" 
+                                   itemValue="#{lookupBean.lookupId}"  
+                                   />
+
+                </pou:selectOneMenu> 
+            </pou:column>
+            <pou:column  >
+                <pou:inputText value="#{jlrMgrClientPayment.custPayBean.amount}" 
+                               style="font-size:14px; text-align:  right" size="10">
+                    <f:convertNumber 
+                        groupingUsed="true"
+
+                        maxFractionDigits="2"
+                        minFractionDigits="3"
+                        maxIntegerDigits="10"
+                        />
+                </pou:inputText>
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrMgrClientPayment.custPayBean.date}" showButtonPanel="true" 
+                              style="font-size:14px" navigator="true" size="12"
+                              pattern="MM/dd/yyyy"/>  
+            </pou:column>
+        </pou:row>
+
+        <pou:row  >
+            <pou:column  colspan="4" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Comment
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column  colspan="4"   >
+                <pou:inputText value="#{jlrMgrClientPayment.custPayBean.comment}" 
+                               style="font-size:14px; width:98%"/>
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column  colspan="4"  style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Note
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="4"  >
+                <pou:inputTextarea rows="4" cols="50"  maxlength="200" 
+                                   value="#{jlrMgrClientPayment.custPayBean.note}" 
+
+                                   style="font-size:14px; width: 98%"/>
+            </pou:column>
+        </pou:row>
+    </pou:panelGrid>
+    <br/>
+    <pou:toolbar >
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 400px" >
+            <pou:commandButton value="Back"  action="#{jlrMgrClientPayment.customerPaymentBack()}" />
+            <pou:commandButton value="Cancel"  action="#{jlrMgrClientPayment.customerPaymentCancel()}" />
+            <pou:commandButton value="Save"  action="#{jlrMgrClientPayment.customerPaymentSave()}" />
+        </pou:toolbarGroup>
+    </pou:toolbar>
+</html>
+
+

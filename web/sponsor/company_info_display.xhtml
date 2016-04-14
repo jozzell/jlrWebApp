@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pou="http://primefaces.org/ui">
+
+
+    <pou:panelGrid style="font-size:14px; width: 95%">  
+        <pou:row  >
+             <pou:column  style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+               Site ID
+            </pou:column>
+             <pou:column  style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+               Name
+            </pou:column>
+            <pou:column  style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Address
+            </pou:column>
+            <pou:column  width="40" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                E-Mail
+            </pou:column>
+            <pou:column  style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                Phone/Fax
+            </pou:column>
+        </pou:row>
+        
+        <pou:row >
+            <pou:column  style="text-align:  center ;  font-size:14px" >
+                <h:outputText value="#{jlrMgr.siteId}"  />  
+            </pou:column>
+            <pou:column  style="text-align:  center ;  font-size:14px" >
+                <h:outputText value="#{jlrMgr.clientBean.displayFullName}"  />  
+                
+            </pou:column>
+            <pou:column style="text-align:  center ; font-size:14px" >
+                <h:outputText value=" #{jlrMgr.companyBean.addr}"  /> 
+                <h:outputText value=" #{jlrMgr.companyBean.addr2nd}"  /> 
+                <br/>
+                <h:outputText value="#{jlrMgr.companyBean.city}"  /> 
+                <h:outputText value=" #{jlrMgr.companyBean.state}"  /> 
+                <h:outputText value=" #{jlrMgr.companyBean.zip}"  /> 
+                
+            </pou:column>
+            
+            <pou:column  style="text-align:  center ;  font-size:14px" >
+               
+                <h:outputText value="#{jlrMgr.companyBean.vendorName}"  /> 
+                 <br/>
+                <h:outputText value="#{jlrMgr.companyBean.EMail}"  /> 
+            </pou:column>
+            <pou:column  style="text-align:  center ;  font-size:14px" >
+                <h:outputText value="#{jlrMgr.companyBean.phone}"  /> 
+                <h:outputText value=" Ext. #{jlrMgr.companyBean.phoneExt}"  /> 
+                <br/>
+                <h:outputText value="#{jlrMgr.companyBean.fax}"  /> 
+            </pou:column>
+        </pou:row>
+
+    </pou:panelGrid>
+    
+</html>
+

@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui">
+    <pou:poll interval="300" listener="#{jlrMgr._testConnection()}" />
+    <pou:megaMenu  orientation="horizontal" autoDisplay="false"   >
+       <pou:submenu label="File" style=" font-size: 14px"  >
+            <pou:column >
+                
+                <pou:submenu label="#{jlrMgr.sponsorBean.sponsorDesc}">
+                    
+                    <pou:menuitem value="Edit Company Info"  
+                                  disabled="#{jlrMgr.demo}"
+                                  action="#{jlrVendor_Event.editCompanyInfo()}"
+                                  style=" font-size: 14px"
+                                  />
+                    <pou:menuitem value="New Event"  
+                                  
+                                   action="#{jlrVendor_Event.eventNew()}"
+                                  style=" font-size: 14px"
+                                  />
+                    <pou:separator />
+                    <pou:menuitem value="Change Password"  
+                                  
+                                  action="#{jlrVendor_Event.password()}"
+                                  style=" font-size: 14px"
+                                  />
+                    <pou:separator />
+                    <pou:menuitem value="Logout"  
+                                   icon="ui-icon-close" 
+                                  action="#{jlrMgr.logout()}"
+                                  style=" font-size: 14px"
+                                  />
+                </pou:submenu>
+            </pou:column>
+       </pou:submenu>
+       
+        <pou:submenu label="Reports" style=" font-size: 14px" rendered="false" >
+            <pou:column >
+                <pou:submenu label="Event Report">
+                    <pou:menuitem value="1St Night Deposit"  
+
+                                  action="#{jlrMgrPDF.rpt_1StNight()}"
+                                  style=" font-size: 14px"
+                                  />
+                    <pou:menuitem value="Payment"  
+                                  action="#{jlrMgrPDF.rpt_payment()}"
+                                  style=" font-size: 14px"
+                                  />
+                    <pou:menuitem value="Block"  
+                                  action="#{jlrMgrPDF.rpt_block()}"
+                                  style=" font-size: 14px"
+                                  />
+                </pou:submenu>
+            </pou:column>
+            <pou:column >
+                <pou:submenu label="Client Report">
+                    <pou:menuitem value="Booking"  
+                                  action="#{jlrMgrPDF.rpt_client_booking()}"
+                                  style=" font-size: 14px"
+                                  />
+                    <pou:menuitem value="Payment"  
+                                  action="#{jlrMgrPDF.rpt_client_payment()}"
+                                  style=" font-size: 14px"
+                                  />
+                    <pou:menuitem value="Roommate"  
+                                  action="#{jlrMgrPDF.rpt_client_roommate()}"
+                                  style=" font-size: 14px"
+                                  />
+                    <pou:menuitem value="Payment Fee's"  
+                                  action="#{jlrMgrPDF.rpt_fee_payment()}"
+                                  style=" font-size: 14px"
+                                  />
+                </pou:submenu>
+            </pou:column>
+
+        </pou:submenu>
+         
+
+    </pou:megaMenu>
+</html>
+

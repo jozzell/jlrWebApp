@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/jlrWebApp">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/jlrooms_demo" password="cru$h" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jlRoomsdemo" username="jozzell"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/jlroomsc_demo" password="cru$h947" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jlroomsc_demo" username="jlroomsc_jozzell"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/jlroomsc_root" password="cru$h947" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jlroomsc_root" username="jlroomsc_jozzell"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/jlroomsc_prod_001" password="cru$h947" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jlroomsc_prod_001" username="jlroomsc_jozzell"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/jlroomsc_prod_002" password="cru$h947" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jlroomsc_prod_002" username="jlroomsc_jozzell"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/jlroomsc_prod_003" password="cru$h947" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jlroomsc_prod_003" username="jlroomsc_jozzell"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/jlroomsc_prod_004" password="cru$h947" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/jlroomsc_prod_004" username="jlroomsc_jozzell"/>
+</Context>

@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<pou:panelGrid  style="font-size:10px; width: 97%">  
+
+        <pou:row  >
+            <pou:column colspan="3" style="text-align:  center ; background-color:  lightblue; font-size:10px" >
+                Booking Information
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:10px" >
+                Status
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:10px" >
+                #{jlrMgrClientBooking.custRmBean.vendor}
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:10px" >
+                Client
+            </pou:column>
+
+        </pou:row>
+
+
+        <pou:row  >
+            <pou:column  >
+                <pou:selectOneMenu 
+                    value="#{jlrMgrClientBooking.custRmBeanEdit.custRoomType}"   
+                    style="font-size:14px" >  
+                    <f:selectItems value="#{jlrMgrClientBooking.statusList}" 
+                                   var="lookupBean" 
+
+                                   itemLabel="#{lookupBean.desc}" 
+                                   itemValue="#{lookupBean.lookupId}"  
+                                   />
+
+                </pou:selectOneMenu> 
+            </pou:column>
+            <pou:column colspan="1"  style=" font-size: 14px" >
+                #{jlrMgrClientBooking.custRmBean.lookupDesc}
+            </pou:column>
+            <pou:column colspan="1"  style=" font-size: 14px" >
+                
+                #{jlrMgrClientBooking.custBean.displayFullName}  #{jlrMgrClientBooking.custBean.displayTown}; 
+                <br/>
+                #{jlrMgrClientBooking.custBean.hmPhone} #{jlrMgrClientBooking.custBean.EMail}
+            </pou:column>
+        </pou:row>
+        
+        <pou:row  >
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:10px" >
+                Starting Date
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:10px">
+                Ending Date
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:10px">
+                Balance Due By
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column  >
+                <pou:calendar value="#{jlrMgrClientBooking.custRmBean.effDate}" showButtonPanel="true"  
+                              size="14" navigator="true" style=" font-size: 14px"
+                              pattern="MM/dd/yyyy"/>  
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrMgrClientBooking.custRmBean.endDate}" showButtonPanel="true"  
+                              size="14" navigator="true" style=" font-size: 14px"
+                              pattern="MM/dd/yyyy"  />  
+            </pou:column>
+            <pou:column >
+                <pou:calendar value="#{jlrMgrClientBooking.custRmBean.due}" showButtonPanel="true"  
+                              size="14" navigator="true" style=" font-size: 14px"
+                              pattern="MM/dd/yyyy" />  
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:10px" >
+                #{jlrMgrClientBooking.custRmBean.display1}
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:10px">
+                Count
+            </pou:column>
+            <pou:column style="text-align:  center ; background-color:  lightblue; font-size:10px">
+                Cost Split
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column  >
+                <pou:inputText value="#{jlrMgrClientBooking.custRmBean.rmCost}" 
+                               size="14"   style=" font-size: 14px"      >
+                    <f:convertNumber 
+                        groupingUsed="true"
+                        
+                        maxFractionDigits="2"
+                        minFractionDigits="3"
+                        maxIntegerDigits="10"
+                       />
+                </pou:inputText>
+
+
+            </pou:column>
+            <pou:column >
+
+
+                <pou:inputText value="#{jlrMgrClientBooking.custRmBean.custRoomCnt}" 
+                               size="10"    style=" font-size: 14px"          >
+                    <f:convertNumber
+                        type="number"
+                        maxIntegerDigits="10"    
+                        minIntegerDigits="1"
+                        />
+                </pou:inputText>
+
+            </pou:column>
+            <pou:column >
+                <pou:selectOneMenu 
+
+                    value="#{jlrMgrClientBooking.custRmBean.roommateSplit}"   
+                    style="font-size:14px" >  
+                    <f:selectItems value="#{jlrMgrClientBooking.spliteRate}" 
+                                   var="lookupBean" 
+
+                                   itemLabel="#{lookupBean.desc}" 
+                                   itemValue="#{lookupBean.lookupId}"  
+                                   />
+
+                </pou:selectOneMenu> 
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="3" style="text-align:  center ; background-color:  lightblue; font-size:10px" >
+                Comment
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column  colspan="3" >
+                <pou:inputTextarea rows="2" cols="50"  maxlength="200" 
+                                   value="#{jlrMgrClientBooking.custRmBean.roomComment}" style=" width:99%; font-size: 14"/>
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="3" style="text-align:  center ; background-color:  lightblue; " >
+                Due Date Comment
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="3"  >
+                <pou:inputTextarea rows="2" cols="50"  maxlength="200" 
+                                   value="#{jlrMgrClientBooking.custRmBean.dueComment}" style=" width:99%; font-size: 14px"/>
+            </pou:column>
+        </pou:row>
+
+
+    </pou:panelGrid>
+</html>
+

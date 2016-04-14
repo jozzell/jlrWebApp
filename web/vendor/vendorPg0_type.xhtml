@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <pou:dataTable   
+
+        var="lookupBean" 
+
+        rowKey="#{lookupBean.lookupId}"
+        selection="#{jlrVendor.lookupBean}"
+        selectionMode="single"
+        value="#{jlrVendor.lookupListModel}"  
+        style="font-size:14px; width:250px" >  
+        <pou:column selectionMode="single" style="width:10%" />  
+        <pou:column  style="font-size:14px">  
+            <f:facet name="header">  
+                <h:outputText value="Booking Type"  />  
+            </f:facet>  
+            <h:outputText value="#{lookupBean.desc}"  />  
+        </pou:column>  
+    </pou:dataTable>
+    <br/>
+    <pou:toolbar  id="tbClient" style=" width: 100%" >
+        <pou:toolbarGroup id="tbClientGrp" align="left" style="font-size:14px; width: 97%"  >
+            <pou:commandButton value="Cancel"   action="#{jlrVendor.pg0_typeCanel()}" />
+            <pou:commandButton id="imageBtn"  type="button" icon="ui-icon-help" />
+            <pou:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade" at="left top">
+                <ui:include src="../help/clientBookingWizard/pg4_booking.xhtml" />
+
+            </pou:overlayPanel>
+
+            <pou:commandButton value="Next"  icon="ui-icon-bullet"  action="#{jlrVendor.pg0_typeNext()}" />
+        </pou:toolbarGroup>
+
+    </pou:toolbar>
+
+
+    <pou:dialog  position="60,260" resizable="false" height="100" width="400"
+                 id="basicDialogBlockMsg"  style=" font-size: 14px"
+                 header="Client Booking Wizard" 
+                 widgetVar="dialogWidgetbasicDialogBlockMsg" >  
+        You must first select a Vendor Type First
+    </pou:dialog> 
+</html>
+

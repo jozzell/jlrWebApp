@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pou="http://primefaces.org/ui">
+
+    
+
+    <pou:toolbar style=" width: 97%"
+                  >
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 97%" >
+            <pou:outputLabel value="Reserved Blocks" />
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    <br/>
+    <ui:include src="BlockV2Pg00_include.xhtml" />
+    <br/>
+    <pou:toolbar style=" width: 97%">
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 97%" >
+            <pou:commandButton value="Add Reserved Block"   
+                               action="#{jlrBlocks.addNewBlock()}" />
+            <pou:commandButton value="Show Workflow"      
+                                   style=" font-size: 14px"
+                                   action="#{jlrMgr.workFlow()}"  />
+
+             <pou:commandButton value="Block Report"   
+                               action="#{jlrBlocks.blockRpt()}" />
+            <pou:commandButton value="Edit Reserved Block"   
+                               
+                               icon="ui-icon-bullet"   
+                               action="#{jlrBlocks.editBlock()}" />
+           
+        </pou:toolbarGroup>
+    </pou:toolbar>
+   
+    
+</html>
+

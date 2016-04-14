@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui">
+
+     
+    
+    <pou:panelGrid style="font-size:14px; width: 400px">  
+        <pou:row >
+            <pou:column style="text-align:  right ; background-color:  lightblue; font-size:14px">
+                Description*
+            </pou:column>
+            <pou:column>
+                <pou:inputText value="#{jlrMgrClientPayment.lookupBean.desc}" 
+                               style=" width:90%" />
+            </pou:column>
+        </pou:row>
+        <pou:row >
+            <pou:column style="text-align:  right; background-color:  lightblue; font-size:14px">
+                Enabled
+            </pou:column>
+            <pou:column>
+                <pou:selectOneMenu 
+                    value="#{jlrMgrClientPayment.lookupBean.flag}"   
+                    style="font-size:14px" >  
+                    <f:selectItems value="#{jlrMgrClientPayment.flagStatusList}" 
+                                   var="bean" 
+
+                                   itemLabel="#{bean.desc}" 
+                                   itemValue="#{bean.lookupId}"  
+                                   />
+
+                </pou:selectOneMenu> 
+            </pou:column>
+        </pou:row>
+
+
+    </pou:panelGrid>
+    <br/>
+    <pou:toolbar  style="width: 400px">
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 400px" >
+            <pou:commandButton value="Cancel" action="#{jlrMgrClientPayment.editCancel()}"/>
+            <pou:commandButton value="Save" action="#{ jlrMgrClientPayment.editSave()}"/>
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+
+</html>
+

@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pe="http://primefaces.org/ui/extensions" 
+      xmlns:pou="http://primefaces.org/ui">
+
+
+    <pou:panelGrid style="font-size:14px; width: 600px">  
+
+        <pou:row  >
+            <pou:column colspan="3" 
+                        style="  text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Event Information" />
+            </pou:column>
+
+
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" 
+                        style=" text-align:  right ; background-color:  lightblue" >
+                <pou:outputLabel value="Event Description" />
+            </pou:column>
+            <pou:column colspan="2" >
+                <pou:inputText value="#{jlrEvents_edit.sponsorBean.sponsorDesc}"  style=" width: 95%"/>
+            </pou:column>
+
+        </pou:row>
+
+        <pou:row  >
+
+
+            <pou:column colspan="3"  style=" text-align:  center" >
+                <pou:outputLabel value="#{jlrEvents_edit.sponsorBean.vendorName} (Event Sponsor)" />
+            </pou:column>
+
+        </pou:row>
+        <pou:row  >
+           
+            <pou:column colspan="1" 
+                        style=" text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Start Date" />
+
+            </pou:column>
+            <pou:column colspan="1" 
+                        style=" text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="End Date" />
+            </pou:column>
+            <pou:column colspan="1" 
+                        style=" text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Status" />
+            </pou:column>
+
+        </pou:row>
+
+        <pou:row  >
+           
+
+            <pou:column>
+                <pou:calendar  size="20"
+
+                               value="#{jlrEvents_edit.sponsorBean.effDate}" 
+                               pattern="MM/dd/yy hh:mm a"  
+                               style="font-size:14px;"
+                               showButtonPanel="true"   
+                               navigator="true" /> 
+            </pou:column>
+            <pou:column>
+                <pou:calendar 
+                    size="20" navigator="true"
+                    value="#{jlrEvents_edit.sponsorBean.endDate}" 
+                    pattern="MM/dd/yy hh:mm a" 
+                    style="font-size:14px;  " 
+                    showButtonPanel="true"   
+                    /> 
+            </pou:column>
+            <pou:column>
+
+                <pou:selectOneMenu 
+                    value="#{jlrEvents_edit.sponsorBean.flagId}"   
+                    style="font-size:14px" >  
+                    <f:selectItems value="#{jlrEvents.flagStatusList}" 
+                                   var="lookupBean" 
+
+                                   itemLabel="#{lookupBean.desc}" 
+                                   itemValue="#{lookupBean.lookupId}"  
+                                   />
+
+                </pou:selectOneMenu> 
+
+            </pou:column>
+        </pou:row>
+    </pou:panelGrid>
+    <br/>
+    <pou:panelGrid style="font-size:14px; width: 600px">  
+        <pou:row  >
+            <pou:column colspan="8" style="text-align:  center ; background-color:  lightblue; font-size:14px; font-style:  italic" >
+                <pou:outputLabel value="Processing Fees ($)" />
+
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column colspan="1" 
+                        style=" text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Proceing fee" />
+                <br/>
+                <pou:outputLabel value="(Default)" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Hotel" />
+
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Car Rentel" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="AirLine" />
+            </pou:column>
+
+
+        </pou:row>
+<pou:row  >
+            <pou:column>
+
+                <pou:inputText value="#{jlrEvents_edit.sponsorBean.procFee}"  size="10" style=" text-align:  right" >
+
+                    <f:convertNumber maxFractionDigits="2"
+                                     groupingUsed="true"
+                                     currencySymbol="$"
+                                     minFractionDigits="3"
+                                     maxIntegerDigits="4"
+                                     type="currency"/>
+                </pou:inputText>  
+            </pou:column>
+            <pou:column>
+
+
+                <pou:inputText value="#{jlrEvents_edit.sponsorBean.procFeeHotel}"  size="10"  style=" text-align:  right" >
+
+                    <f:convertNumber maxFractionDigits="2"
+                                     groupingUsed="true"
+                                     currencySymbol="$"
+                                     minFractionDigits="3"
+                                     maxIntegerDigits="4"
+                                     type="currency"/>
+                </pou:inputText>  
+            </pou:column>
+            <pou:column>
+
+
+                <pou:inputText value="#{jlrEvents_edit.sponsorBean.procFeeCar}"  size="10" style=" text-align:  right" >
+
+                    <f:convertNumber maxFractionDigits="2"
+                                     groupingUsed="true"
+                                     currencySymbol="$"
+                                     minFractionDigits="3"
+                                     maxIntegerDigits="4"
+                                     type="currency"/>
+                </pou:inputText>  
+            </pou:column>
+
+
+            <pou:column>
+
+
+                <pou:inputText value="#{jlrEvents_edit.sponsorBean.procFeeAir}"  size="10"  style=" text-align:  right">
+
+                    <f:convertNumber maxFractionDigits="2"
+                                     groupingUsed="true"
+                                     currencySymbol="$"
+                                     minFractionDigits="3"
+                                     maxIntegerDigits="4"
+                                     type="currency"/>
+                </pou:inputText>  
+            </pou:column>
+</pou:row>
+
+
+        <pou:row  >
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Ticket" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Cruise" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Merchandise" />
+            </pou:column>
+            <pou:column colspan="1" style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel value="Train" />
+            </pou:column>
+        </pou:row>
+
+        
+        <pou:row >
+            <pou:column>
+
+
+                <pou:inputText value="#{jlrEvents_edit.sponsorBean.procFeeTicket}" size="10"  style=" text-align:  right" >
+
+                    <f:convertNumber maxFractionDigits="2"
+                                     groupingUsed="true"
+                                     currencySymbol="$"
+                                     minFractionDigits="3"
+                                     maxIntegerDigits="4"
+                                     type="currency"/>
+                </pou:inputText>  
+            </pou:column>
+            <pou:column>
+                <pou:inputText value="#{jlrEvents_edit.sponsorBean.procFeeCruise}"  size="10" style=" text-align:  right" >
+
+                    <f:convertNumber maxFractionDigits="2"
+                                     groupingUsed="true"
+                                     currencySymbol="$"
+                                     minFractionDigits="3"
+                                     maxIntegerDigits="4"
+                                     type="currency"/>
+                </pou:inputText>  
+            </pou:column>
+            <pou:column>
+                <pou:inputText value="#{jlrEvents_edit.sponsorBean.processFeeType}"  size="10" style=" text-align:  right" >
+
+                    <f:convertNumber maxFractionDigits="2"
+                                     groupingUsed="true"
+                                     currencySymbol="$"
+                                     minFractionDigits="3"
+                                     maxIntegerDigits="4"
+                                     type="currency"/>
+                </pou:inputText>  
+            </pou:column>
+            <pou:column>
+                <pou:inputText value="#{jlrEvents_edit.sponsorBean.procFeeTrain}"  size="10" style=" text-align:  right" >
+
+                    <f:convertNumber maxFractionDigits="2"
+                                     groupingUsed="true"
+                                     currencySymbol="$"
+                                     minFractionDigits="3"
+                                     maxIntegerDigits="4"
+                                     type="currency"/>
+                </pou:inputText>  
+            </pou:column>
+
+
+        </pou:row>
+    </pou:panelGrid>
+    <br/>
+    <pou:toolbar style=" width: 97%">
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 97%" >
+
+            <pou:commandButton value="Cancel" 
+                               action="#{jlrMgr.clientHome()}" />
+            <pou:commandButton value="Save" 
+                               action="#{jlrEvents_edit.save()}" />
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+</html>
+

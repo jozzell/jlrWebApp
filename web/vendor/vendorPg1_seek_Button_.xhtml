@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+     <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui">
+    <br/>
+    <pou:toolbar  style=" width: 600px"  >
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 600px" >
+            <pou:commandButton value="Cancel"   action="#{jlrMgr.clientHome()}" />
+            <pou:commandButton value="Add New Vendor"  action="#{jlrVendor_Event.newVendor()}" />
+            <pou:commandButton value="Edit Vendor" icon="ui-icon-bullet"  action="#{jlrVendor_Event.editVendor}" />
+            <pou:commandButton value="Select"  icon="ui-icon-bullet"  action="#{jlrVendor_Event.pickSelect()}" />
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidget" 
+                  position="60,260" height="100" width="250" style=" font-size: 14px" >  
+        No Vendor Selected Editing (Click Gray Circle and Row will turn Yellow when selected)
+    </pou:dialog>
+</html>
+

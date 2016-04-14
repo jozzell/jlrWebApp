@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:pou="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <pou:panelGrid 
+        style=" width: 600px">
+        <pou:row  >
+            <pou:column  style="text-align:  center ; background-color:  lightblue; font-size:14px" >
+                <pou:outputLabel for="input" value="Event Name" style=" text-align:  center;  font-size: 14px;background-color:  lightblue" />
+            </pou:column>
+        </pou:row>
+        <pou:row  >
+            <pou:column  style=" font-size:14px" >
+                <pou:inputText id="input" value="#{jlrMgr.sponsorBean.sponsorDesc}"  
+                               style="font-size:14px; width: 95%"/> 
+            </pou:column>
+        </pou:row>
+
+
+    </pou:panelGrid>
+    <br/>
+    <pou:panelGrid 
+        columns="2" style=" width: 200px">
+
+        <pou:inputText value="#{jlrVendor_Event_New.seek}" 
+                       style="font-size:14px"/> 
+        <pou:commandButton 
+
+            value="Search..." 
+            type="submit" 
+            action="#{jlrVendor_Event_New.seekSet()}"  
+            style="font-size:14px" />
+    </pou:panelGrid>
+    <br/>
+    <pou:dataTable  style="width: 600px; font-size: 14px"
+                    var="vendorBean"  
+                    rowKey="#{vendorBean.vendorId}"
+                    selectionMode="single"
+                    selection="#{jlrVendor_Event_New.vendorBean}"
+                    value="#{jlrVendor_Event_New.seekVendorListModel}"  >  
+
+        <ui:include src="vendorPg1_seek_.xhtml" />
+    </pou:dataTable>
+    <br/>
+    <pou:toolbar  style=" width: 600px"  >
+        <pou:toolbarGroup align="left" style="font-size:14px; width: 600px" >
+            <pou:commandButton value="Cancel"   action="#{jlrVendor_Event_New.cancelNewEvent()}" />
+            <pou:commandButton value="Add New Vendor"  action="#{jlrVendor_Event_New.newVendor()}" />
+            <pou:commandButton value="Edit Vendor" icon="ui-icon-bullet"  action="#{jlrVendor_Event_New.editVendor}" />
+            <pou:commandButton value="Select"  icon="ui-icon-bullet"  action="#{jlrVendor_Event_New.pickSelect()}" />
+
+        </pou:toolbarGroup>
+    </pou:toolbar>
+    <pou:dialog   id="basicDialog" header="Warning" widgetVar="dialogWidget" 
+                  position="60,260" height="100" width="250" style=" font-size: 14px" >  
+        Missing Event Name or no Vendor was Selected
+    </pou:dialog>
+</html>
+

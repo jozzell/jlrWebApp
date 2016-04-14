@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:pou="http://primefaces.org/ui" 
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:include src="../rpt/RptCustomerItinerary_All.xhtml"    />
+    <br/>
+    <pou:toolbar  >
+        <pou:toolbarGroup align="left" style="font-size:14px" >
+            <pou:commandButton value="Back" 
+                               style=" font-size: 14px" 
+                               action="#{jlrMgr.clientOptionsDone()}" />
+            <pou:splitButton value="Booking Workflow" actionListener="#{jlrMgr.workFlowClientBooking()}" 
+                             >
+                <pou:menuitem value="Payment Workflow" actionListener="#{jlrMgr.workFlowClientBooking()}" 
+                               />
+                <pou:menuitem value="Roomate Wrokflow" actionListener="#{jlrMgr.workFlowClientRoommate()}" 
+                               />
+
+                
+            </pou:splitButton>
+
+           
+
+            <pou:commandButton value="Booking"      
+                               style=" font-size: 14px"
+                               action="#{jlrMgr.reservation()}"  />
+            <pou:commandButton value="Payments"      
+                               style=" font-size: 14px"
+                               action="#{jlrMgr.clientPayment()}"  />
+             <pou:commandButton value="Roommate"    icon="roommate"  
+                               style=" font-size: 14px"
+                               action="#{jlrMgr.roomMate()}"  />
+               <pou:commandButton value="Itinerary (PDF)"    icon="roommate"  
+                               style=" font-size: 14px"
+                               action="#{jlrMgrPDF.itinerary()}"  />
+        </pou:toolbarGroup>
+    </pou:toolbar>
+
+
+</html>
+
